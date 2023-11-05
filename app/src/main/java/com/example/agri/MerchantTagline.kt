@@ -1,0 +1,43 @@
+package com.example.agri
+
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+
+class MerchantTagline : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_merchant_tagline)
+
+
+        val home = findViewById<Button>(R.id.home)
+        val profile = findViewById<Button>(R.id.profile)
+        val products = findViewById<Button>(R.id.products)
+        val report = findViewById<Button>(R.id.report)
+
+        home.setOnClickListener {
+            // Define the behavior here (e.g., navigate to a new activity)
+            val intent = Intent(this, MerchantTagline::class.java)
+            startActivity(intent)
+        }
+
+        profile.setOnClickListener {
+            // Define the behavior here (e.g., navigate to a new activity)
+            val intent1 = Intent(this, MerchantSignedContracts::class.java)
+            startActivity(intent1)
+        }
+
+        products.setOnClickListener {
+            // Define the behavior here (e.g., navigate to a new activity)
+            val intent2 = Intent(this, MerchantProductCategory::class.java)
+            startActivity(intent2)
+        }
+
+        report.setOnClickListener {
+            // Define the behavior here (e.g., navigate to a new activity)
+            val intent3 = Intent(this, MerchantReport::class.java)
+            startActivity(intent3)
+        }
+    }
+}

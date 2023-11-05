@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Agri"
+        tools:targetApi="31">
+        <activity
+            android:name=".sample"
+            android:exported="false" />
+        <activity
+            android:name=".MerchantProductCategory"
+            android:exported="false" />
+        <activity
+            android:name=".MerchantTagline"
+            android:exported="false" />
+        <activity
+            android:name=".MerchantReport"
+            android:exported="false" />
+        <activity
+            android:name=".MerchantContractListing"
+            android:exported="false" />
+        <activity
+            android:name=".MerchantSignedContracts"
+            android:exported="false" />
+        <activity
+            android:name=".MerchantAuthentication"
+            android:exported="false" />
+        <activity
+            android:name=".MerchantProfile"
+            android:exported="false" />
+        <activity
+            android:name=".ConsumerProductListingDIrectory"
+            android:exported="false" />
+        <activity
+            android:name=".ConsumerReports"
+            android:exported="false" />
+        <activity
+            android:name=".ConsumerContractListing"
+            android:exported="false" />
+        <activity
+            android:name=".ConsumerTagline"
+            android:exported="false" />
+        <activity
+            android:name=".ConsumerSignedContracts"
+            android:exported="false" />
+        <activity
+            android:name=".ConsumerAuthentication"
+            android:exported="false" />
+        <activity
+            android:name=".ConsumerProfile"
+            android:exported="false" />
+        <activity
+            android:name=".ConsumerSignup"
+            android:exported="false" />
+        <activity
+            android:name=".ConsumerNohassle"
+            android:exported="false" />
+        <activity
+            android:name=".ConsumerWholesale"
+            android:exported="false" />
+        <activity
+            android:name=".ConsumerOrder"
+            android:exported="false" />
+        <activity
+            android:name=".SignupMerchant"
+            android:exported="false" />
+        <activity
+            android:name=".productoffering_Merchant"
+            android:exported="false" />
+        <activity
+            android:name=".CreatebrandMerchant"
+            android:exported="false" />
+        <activity
+            android:name=".Merchant"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
