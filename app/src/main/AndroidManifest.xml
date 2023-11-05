@@ -12,18 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Agri"
         tools:targetApi="31">
-        <activity
-<<<<<<< HEAD
-            android:name=".jonard"
-            android:exported="false" />
-        <activity
-            android:name=".Sample"
-            android:exported="false" />
-        <activity
-=======
->>>>>>> 4fc7f90dbb494285d8b32925e8d29a54866ea884
-            android:name=".sample"
-            android:exported="false" />
+
+
         <activity
             android:name=".MerchantProductCategory"
             android:exported="false" />
