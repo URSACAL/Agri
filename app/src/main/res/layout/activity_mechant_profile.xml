@@ -55,6 +55,20 @@
         app:srcCompat="@android:drawable/editbox_dropdown_light_frame"
         android:contentDescription="Image" />
 
+
+    <EditText
+        android:id="@+id/captchaEditText"
+        android:layout_width="158dp"
+        android:layout_height="44dp"
+        android:layout_below="@+id/imageView8"
+        android:hint="Enter Captcha"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.836" />
+
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="91dp"
@@ -134,7 +148,7 @@
         android:textColor="#FFFFFF" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress2"
+        android:id="@+id/Customer"
         android:layout_width="195dp"
         android:layout_height="43dp"
         android:ems="10"
@@ -147,19 +161,6 @@
         app:layout_constraintVertical_bias="0.321"
         android:textColor="#000000" />
 
-    <EditText
-        android:id="@+id/editTextTextPassword3"
-        android:layout_width="196dp"
-        android:layout_height="41dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.827"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.382"
-        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/textView15"
@@ -190,7 +191,7 @@
         android:contentDescription="Image" />
 
     <EditText
-        android:id="@+id/editTextPhone"
+        android:id="@+id/number"
         android:layout_width="196dp"
         android:layout_height="46dp"
         android:ems="10"
@@ -207,14 +208,29 @@
         android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#0A6939"
         android:text="Submit"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.903"
-        android:textColor="#FFFFFF"
-        android:backgroundTint="#0A6939" /> <!-- Darker green color for the button -->
+        app:layout_constraintVertical_bias="0.904" />
+
+    <EditText
+        android:id="@+id/address"
+        android:layout_width="196dp"
+        android:layout_height="41dp"
+        android:ems="10"
+        android:inputType="textPostalAddress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.827"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.382"
+        android:textColor="#000000" />
+
+    <!-- Darker green color for the button -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

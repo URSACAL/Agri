@@ -12,10 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Agri"
         tools:targetApi="31">
-
+        <activity
+            android:name=".Merchant"
+            android:exported="false" />
 
         <activity
             android:name=".MerchantProductCategory"
+            android:exported="false"/>
+
+        <activity
+            android:name=".MerchantProfile"
             android:exported="false" />
         <activity
             android:name=".MerchantTagline"
@@ -31,9 +37,6 @@
             android:exported="false" />
         <activity
             android:name=".MerchantAuthentication"
-            android:exported="false" />
-        <activity
-            android:name=".MerchantProfile"
             android:exported="false" />
         <activity
             android:name=".ConsumerProductListingDIrectory"
@@ -76,9 +79,6 @@
             android:exported="false" />
         <activity
             android:name=".CreatebrandMerchant"
-            android:exported="false" />
-        <activity
-            android:name=".Merchant"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
