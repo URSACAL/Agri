@@ -10,6 +10,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.UserProfileChangeRequest
 
 
 class SignupMerchant : AppCompatActivity() {
@@ -23,21 +26,35 @@ class SignupMerchant : AppCompatActivity() {
         val confirmpassword = findViewById<EditText>(R.id.editTextTextConfirmPassword)
         val signup = findViewById<Button>(R.id.signup)
 
-        var database: FirebaseDatabase = FirebaseDatabase.getInstance()
-        var reference: DatabaseReference = database.reference
+//        var database: FirebaseDatabase = FirebaseDatabase.getInstance()
+//        var reference: DatabaseReference = database.reference
 
 
         signup.setOnClickListener(View.OnClickListener {
-            database = FirebaseDatabase.getInstance()
-            reference = database.getReference("users")
+//            database = FirebaseDatabase.getInstance()
+//            reference = database.getReference("users")
+
+            val auth = FirebaseAuth.getInstance()
 
             val Email = email.text.toString()
             val Password =password.text.toString()
             val ConfirmPassword = confirmpassword.text.toString()
-            val HelperClass = HelperClass(Email, Password, ConfirmPassword)
-            reference.child(Email).setValue(HelperClass)
-            Toast.makeText(this@SignupMerchant, "You have signUp successfully!", Toast.LENGTH_SHORT)
-                .show()
+//            val HelperClass = HelperClass(Email, Password, ConfirmPassword)
+
+            auth.createUserWithEmailAndPassword(Email, Password)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        val user = auth.currentUser
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Toast.makeText(baseContext, "Authentication failed.",
+                            Toast.LENGTH_SHORT).show()
+                    }
+                }
+//
+//            reference.child(Email).setValue(HelperClass)
+//            Toast.makeText(this@SignupMerchant, "You have signUp successfully!", Toast.LENGTH_SHORT)
+//                .show()
 
             val intent = Intent(this, MerchantProfile::class.java)
             startActivity(intent)
