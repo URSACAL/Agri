@@ -120,7 +120,7 @@
         android:textColor="#FFFFFF" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress2"
+        android:id="@+id/MP_OwnerName"
         android:layout_width="195dp"
         android:layout_height="43dp"
         android:ems="10"
@@ -134,7 +134,7 @@
         android:textColor="#000000" />
 
     <EditText
-        android:id="@+id/editTextTextPassword3"
+        android:id="@+id/MP_OwnerAddress"
         android:layout_width="196dp"
         android:layout_height="41dp"
         android:ems="10"
@@ -177,7 +177,7 @@
         android:contentDescription="Image" />
 
     <EditText
-        android:id="@+id/editTextPhone"
+        android:id="@+id/MP_OwnerContact"
         android:layout_width="196dp"
         android:layout_height="46dp"
         android:ems="10"

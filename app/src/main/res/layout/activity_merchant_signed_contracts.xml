@@ -123,9 +123,10 @@
         android:gravity="end" /> <!-- White text color -->
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress2"
+        android:id="@+id/MP_OwnerName"
         android:layout_width="195dp"
         android:layout_height="43dp"
+        android:clickable="false"
         android:ems="10"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -136,9 +137,10 @@
         app:layout_constraintVertical_bias="0.321" />
 
     <EditText
-        android:id="@+id/editTextTextPassword3"
+        android:id="@+id/MP_OwnerAddress"
         android:layout_width="196dp"
         android:layout_height="41dp"
+        android:clickable="false"
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -178,9 +180,10 @@
         app:srcCompat="@android:drawable/ic_menu_upload" />
 
     <EditText
-        android:id="@+id/editTextPhone"
+        android:id="@+id/MP_OwnerContact"
         android:layout_width="196dp"
         android:layout_height="46dp"
+        android:clickable="false"
         android:ems="10"
         android:inputType="phone"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -213,6 +216,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.859"
         app:srcCompat="@android:drawable/ic_media_previous"
-        app:tint="#FFFFFF" /> <!-- White icon color for the button -->
+        android:backgroundTint="#0A6939" /> <!-- White icon color for the button -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
