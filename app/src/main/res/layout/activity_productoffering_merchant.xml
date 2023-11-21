@@ -91,12 +91,12 @@
         android:gravity="center_horizontal" />
 
     <Button
-        android:id="@+id/previous"
+        android:id="@+id/Blogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="550dp"
-        android:text="Previous"
+        android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
