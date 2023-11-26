@@ -144,7 +144,8 @@
         app:layout_constraintHorizontal_bias="0.919"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.612" />
+        app:layout_constraintVertical_bias="0.612"
+        android:backgroundTint="#0A6939"/>
 
     <Button
         android:id="@+id/button5"
@@ -156,6 +157,7 @@
         app:layout_constraintHorizontal_bias="0.914"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.477" />
+        app:layout_constraintVertical_bias="0.477"
+        android:backgroundTint="#0A6939"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
