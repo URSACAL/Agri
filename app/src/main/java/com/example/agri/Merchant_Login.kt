@@ -8,6 +8,7 @@ class Merchant_Login : AppCompatActivity() {
 //    val loginuser = findViewById<EditText>(R.id.log_user)
 //    val loginpass = findViewById<EditText>(R.id.log_pass)
 //    val loginbutton = findViewById<Button>(R.id.login)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_merchant_login)

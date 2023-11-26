@@ -30,7 +30,7 @@ class MerchantTagline : AppCompatActivity() {
 
         products.setOnClickListener {
             // Define the behavior here (e.g., navigate to a new activity)
-            val intent2 = Intent(this, MerchantProductCategory::class.java)
+            val intent2 = Intent(this, Customer_AddProduct::class.java)
             startActivity(intent2)
         }
 
