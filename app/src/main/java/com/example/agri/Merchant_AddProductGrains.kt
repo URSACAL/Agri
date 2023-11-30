@@ -4,9 +4,12 @@ package com.example.agri
 
 
 import android.content.Intent
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -14,25 +17,52 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.drawable.toBitmap
 import com.google.firebase.Firebase
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.database
 import com.google.firebase.initialize
+import com.google.firebase.storage.FirebaseStorage
+import java.io.ByteArrayOutputStream
 
 
-class Customer_AddProduct : AppCompatActivity(){
+
+class Merchant_AddProductGrains : AppCompatActivity() {
 
 
-    data class User(val ProductSKU: String, val ProductName: String, val ProductDesc: String, val imageURL: String)
-//
+    data class User(
+        val ProductSKU: String,
+        val ProductName: String,
+        val ProductDesc: String,
+        val imageURL: String
+    )
+
+    //
     var imageURL: String? = null
     var uri: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_customer_addproduct)
+        setContentView(R.layout.activity_merchant_addproductgrains)
 
+        val spinner1: Spinner = findViewById(R.id.productspinner)
+        val options: Array<String> = resources.getStringArray(R.array.grains_option)
+
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, options)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner1.adapter = adapter
+
+        // Set a listener if needed
+        spinner1.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parentView: AdapterView<*>, selectedItemView: View, position: Int, id: Long) {
+                // Do something with the selected item
+            }
+
+            override fun onNothingSelected(parentView: AdapterView<*>) {
+                // Handle the situation where nothing is selected
+            }
+        }
 
 
         Firebase.initialize(this)
@@ -61,17 +91,18 @@ class Customer_AddProduct : AppCompatActivity(){
 //        }
 
 
-        val activityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            val Productimage = findViewById<ImageView>(R.id.productimage)
-            val resultCode = result.resultCode
-            if (resultCode == RESULT_OK) {
-                val data: Intent? = result.data
-                val uri = data?.data
-                Productimage.setImageURI(uri)
-            } else {
-                Toast.makeText(this, "No Image Selected", Toast.LENGTH_SHORT).show()
+        val activityResultLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+                val Productimage = findViewById<ImageView>(R.id.productimage)
+                val resultCode = result.resultCode
+                if (resultCode == RESULT_OK) {
+                    val data: Intent? = result.data
+                    val uri = data?.data
+                    Productimage.setImageURI(uri)
+                } else {
+                    Toast.makeText(this, "No Image Selected", Toast.LENGTH_SHORT).show()
+                }
             }
-        }
 
 
         Productimage.setOnClickListener(object : View.OnClickListener {
@@ -82,25 +113,67 @@ class Customer_AddProduct : AppCompatActivity(){
             }
         })
 
-        Addproduct.setOnClickListener(){
+        Addproduct.setOnClickListener() {
             var database: FirebaseDatabase = FirebaseDatabase.getInstance()
-            var reference: DatabaseReference = database.reference
+            val reference: DatabaseReference =
+                database.reference.child("Add Products") // Change this to a meaningful node name
 
             val productSKU = Productsku.text.toString()
             val productName = Productname.text.toString()
             val productDesc = Productdesc.text.toString()
 
-//            val user = imageURL?.let { it1 -> User(Productsku, Productname,Productdesc, it1) }
-//            if (user != null) {
-//                writeData(user)
-//            }
-
-
             val ProductClass = ProductClass(productSKU, productName, productDesc)
-            reference.child("Add Product").setValue(ProductClass)
-        }
 
+            // Generate a unique key for each product
+            val productKey = reference.push().key
+
+            if (productKey != null) {
+                // Upload image to Firebase Storage
+                val storageReference =
+                    FirebaseStorage.getInstance().reference.child("product_images")
+                        .child("$productKey.jpg")
+
+                // Get the image from ImageView (productimage)
+                val productImageView = findViewById<ImageView>(R.id.productimage)
+                productImageView.isDrawingCacheEnabled = true
+                productImageView.buildDrawingCache()
+                val bitmap = (productImageView.drawable).toBitmap()
+
+                // Convert the image to bytes
+                val baos = ByteArrayOutputStream()
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+                val data = baos.toByteArray()
+
+                // Upload the image to Firebase Storage
+                val uploadTask = storageReference.putBytes(data)
+                uploadTask.addOnFailureListener {
+                    // Handle unsuccessful uploads
+                    Toast.makeText(this, "Failed to upload image", Toast.LENGTH_SHORT).show()
+                }.addOnSuccessListener {
+                    // If the upload is successful, get the download URL
+                    storageReference.downloadUrl.addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            val downloadUrl = task.result.toString()
+                            // Set the imageURL in your data class
+                            ProductClass.imageURL = downloadUrl
+
+                            // Set other data and push to the database
+                            reference.child(productKey).setValue(ProductClass)
+
+                            Toast.makeText(this, "Product added successfully", Toast.LENGTH_SHORT)
+                                .show()
+                        } else {
+                            Toast.makeText(this, "Failed to get download URL", Toast.LENGTH_SHORT)
+                                .show()
+                        }
+                    }
+                }
+            } else {
+                Toast.makeText(this, "Failed to add product", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
+}
 
 
 
@@ -188,4 +261,4 @@ class Customer_AddProduct : AppCompatActivity(){
 
 
 
-}
+

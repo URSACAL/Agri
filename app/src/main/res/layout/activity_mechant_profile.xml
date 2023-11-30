@@ -179,7 +179,7 @@
 
 
     <EditText
-        android:id="@+id/customer"
+        android:id="@+id/businessName"
         android:layout_width="227dp"
         android:layout_height="38dp"
         android:ems="10"

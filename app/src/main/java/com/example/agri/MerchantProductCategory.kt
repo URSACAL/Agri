@@ -1,36 +1,47 @@
 package com.example.agri
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.agri.databinding.ActivityMerchantProductCategoryBinding
 
 class MerchantProductCategory : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMerchantProductCategoryBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMerchantProductCategoryBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_merchant_product_category)
 
-        val cropName = arrayOf(
-            "Grains", "Vegetables", "Fruits", "Root Crops"
-        )
+        val grains = findViewById<ImageView>(R.id.grains)
+        val fruits = findViewById<ImageView>(R.id.fruit)
+        val vegetables = findViewById<ImageView>(R.id.vegetables)
+        val rootcrops = findViewById<ImageView>(R.id.rootcrop)
 
-        val cropImage = intArrayOf(
-            R.drawable.grains, R.drawable.vegetables, R.drawable.fruits, R.drawable.root
-        )
+        grains.setOnClickListener {
+            // Navigate to Merchant_AddProductGrains activity
+            val intent = Intent(this, Merchant_AddProductGrains::class.java)
+            startActivity(intent)
+        }
 
-        val gridAdapter = GridAdapter(this@MerchantProductCategory, cropName, cropImage)
-        binding.gridView.adapter = gridAdapter
+        fruits.setOnClickListener {
+            // Navigate to Merchant_AddProductFruits activity
+            val intent = Intent(this, Merchant_AddProductFruits::class.java)
+            startActivity(intent)
+        }
 
-        binding.gridView.setOnItemClickListener { parent, view, position, id ->
-            Toast.makeText(
-                this@MerchantProductCategory,
-                "You Clicked on " + cropName[position],
-                Toast.LENGTH_SHORT
-            ).show()
+        vegetables.setOnClickListener {
+            // Navigate to Merchant_AddProductVegetables activity
+            val intent = Intent(this, Merchant_AddProductVegetables::class.java)
+            startActivity(intent)
+        }
+
+        rootcrops.setOnClickListener {
+            // Navigate to Merchant_AddProductRootcrops activity
+            val intent = Intent(this, Merchant_AddProductRootcrops::class.java)
+            startActivity(intent)
         }
     }
 }
+
+
+
+

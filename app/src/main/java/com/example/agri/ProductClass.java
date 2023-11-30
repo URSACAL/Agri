@@ -1,7 +1,15 @@
 package com.example.agri;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 public class ProductClass {
     String ProductSKU, ProductName, ProductDesc;
+    @NotNull
+    public String imageURL;
+    @Nullable
+    public String key;
+
     public ProductClass() {
     }
 
@@ -29,9 +37,15 @@ public class ProductClass {
         ProductDesc = productDesc;
     }
 
+    public String getImageURL() {
+        return imageURL;
+    }
+
+
     public ProductClass(String productSKU, String productName, String productDesc) {
         ProductSKU = productSKU;
         ProductName = productName;
         ProductDesc = productDesc;
     }
+
 }

@@ -11,6 +11,8 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class MerchantSignedContracts : AppCompatActivity() {
     private var isPhotoUploaded = false
@@ -25,12 +27,24 @@ class MerchantSignedContracts : AppCompatActivity() {
         val ownerNameEditText = findViewById<EditText>(R.id.MP_OwnerName)
         val ownerAddressEditText = findViewById<EditText>(R.id.MP_OwnerAddress)
         val ownerContactEditText = findViewById<EditText>(R.id.MP_OwnerContact)
+        var database: FirebaseDatabase = FirebaseDatabase.getInstance()
+        var reference: DatabaseReference = database.reference
+
 
         next.setOnClickListener {
             // Retrieve values from EditText fields
+            database = FirebaseDatabase.getInstance()
+            reference = database.getReference("MerchantSignedContracts")
             val ownerName = ownerNameEditText.text.toString()
             val ownerAddress = ownerAddressEditText.text.toString()
             val ownerContact = ownerContactEditText.text.toString()
+
+            val contract = MerchantsignedontractsClass(
+                ownerName,
+                ownerAddress,
+                ownerContact,
+            )
+            reference.child(ownerName).setValue(contract)
 
             // Check if any of the fields is empty
             if (ownerName.isEmpty() || ownerAddress.isEmpty() || ownerContact.isEmpty()) {

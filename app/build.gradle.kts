@@ -16,6 +16,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled = true
     }
 
     buildTypes {
@@ -26,6 +27,7 @@ android {
                 "proguard-rules.pro"
             )
         }
+
     }
     
     buildFeatures{
@@ -39,6 +41,8 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+
 }
 
 dependencies {
@@ -55,6 +59,7 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    val multidex_version = "2.0.1"
-    implementation("androidx.multidex:multidex:$multidex_version")
+    implementation("com.android.support:multidex:1.0.3")
+    implementation ("com.github.bumptech.glide:glide:4.12.0")
+
 }

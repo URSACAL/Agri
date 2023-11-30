@@ -2,9 +2,9 @@ package com.example.agri
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 
 class ConsumerTagline : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -32,7 +32,7 @@ class ConsumerTagline : AppCompatActivity() {
 
         products.setOnClickListener {
             // Define the behavior here (e.g., navigate to a new activity)
-            val intent2 = Intent(this, Customer_AddProduct::class.java)
+            val intent2 = Intent(this, ConsumerProductListingDIrectory::class.java)
             startActivity(intent2)
         }
 

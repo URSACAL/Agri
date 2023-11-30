@@ -1,9 +1,9 @@
 package com.example.agri
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 
 class MerchantTagline : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +30,7 @@ class MerchantTagline : AppCompatActivity() {
 
         products.setOnClickListener {
             // Define the behavior here (e.g., navigate to a new activity)
-            val intent2 = Intent(this, Customer_AddProduct::class.java)
+            val intent2 = Intent(this, MerchantProductCategory::class.java)
             startActivity(intent2)
         }
 

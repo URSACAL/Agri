@@ -1,8 +1,10 @@
 package com.example.agri
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Button
@@ -12,16 +14,16 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import android.graphics.Bitmap
-import android.graphics.Color
-import kotlin.random.Random
+import com.google.firebase.storage.StorageReference
 
 class MerchantProfile : AppCompatActivity() {
 
     private val PICK_IMAGE_REQUEST = 1
-    private lateinit var imageView: ImageView
     private lateinit var captchaImageView: ImageView
+    private lateinit var imageView: ImageView
     private lateinit var captchaEditText: EditText
+    private lateinit var storageReference: StorageReference
+    private lateinit var imageUri: Uri
 
 
     private var captchaText = ""
@@ -30,9 +32,10 @@ class MerchantProfile : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mechant_profile)
 
-        val CustomerName = findViewById<EditText>(R.id.Customer)
+        val OwnersName = findViewById<EditText>(R.id.Customer)
         val Address = findViewById<EditText>(R.id.address)
         val ContactNumber = findViewById<EditText>(R.id.number)
+        val BusinessName = findViewById<EditText>(R.id.businessName)
         imageView = findViewById(R.id.imageView7)
 
         captchaImageView = findViewById(R.id.imageView8)
@@ -52,15 +55,25 @@ class MerchantProfile : AppCompatActivity() {
 
         submit.setOnClickListener {
             database = FirebaseDatabase.getInstance()
-            reference = database.getReference("users")
+            reference = database.getReference("MerchantProfile")
 
-            val CustomerName = CustomerName.text.toString()
+            val OwnersName = OwnersName.text.toString()
             val Address = Address.text.toString()
             val ContactNumber = ContactNumber.text.toString()
-            val MerchantClass = MerchantClass(CustomerName, Address, ContactNumber)
-            reference.child(CustomerName).setValue(MerchantClass)
+            val BusinessName = BusinessName.text.toString()
 
-            checkCaptcha()
+
+            val Merchant = MerchantprofileClass(
+                OwnersName,
+                Address,
+                ContactNumber,
+                BusinessName
+               )
+            reference.child(OwnersName).setValue(Merchant)
+
+           // checkCaptcha()
+            val intent = Intent(this, MerchantAuthentication::class.java)
+            startActivity(intent)
         }
 
     }

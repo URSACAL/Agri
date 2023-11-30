@@ -8,7 +8,7 @@
     android:background="#569664"> <!-- Green background for a nature-themed style -->
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/vegetable"
         android:layout_width="91dp"
         android:layout_height="94dp"
         android:layout_marginTop="10dp"
@@ -24,6 +24,7 @@
         android:id="@+id/textView9"
         android:layout_width="91dp"
         android:layout_height="29dp"
+        android:gravity="center_horizontal"
         android:text="..."
         android:textAlignment="center"
         android:textColor="#FFFFFF"
@@ -33,9 +34,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.0"
-        android:gravity="center_horizontal" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.163" />
 
     <TextView
         android:id="@+id/textView10"
@@ -71,16 +71,125 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.197" />
 
-    <GridView
-        android:id="@+id/gridView"
-        android:layout_width="383dp"
-        android:layout_height="547dp"
-        android:numColumns="2"
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="101dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="10dp"
+        android:text="Grains"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.17"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.603" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="126dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:text="Vegetables"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.859"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.602" />
+
+    <TextView
+        android:id="@+id/fruits"
+        android:layout_width="100dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="10dp"
+        android:text="Fruits"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.17"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.949" />
+
+    <TextView
+        android:id="@+id/rootcrops"
+        android:layout_width="157dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="10dp"
+        android:text="Root Crops"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.901"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.936" />
+
+    <ImageView
+        android:id="@+id/grains"
+        android:layout_width="167dp"
+        android:layout_height="151dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.442"
+        app:srcCompat="@drawable/grains" />
+
+    <ImageView
+        android:id="@+id/vegetables"
+        android:layout_width="167dp"
+        android:layout_height="151dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.934"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.44"
+        app:srcCompat="@drawable/vegetables" />
+
+    <ImageView
+        android:id="@+id/fruit"
+        android:layout_width="167dp"
+        android:layout_height="151dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.848"
+        app:srcCompat="@drawable/fruits" />
+
+    <ImageView
+        android:id="@+id/rootcrop"
+        android:layout_width="167dp"
+        android:layout_height="151dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.934"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.846"
+        app:srcCompat="@drawable/root" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

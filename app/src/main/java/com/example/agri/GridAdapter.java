@@ -1,60 +1,83 @@
 package com.example.agri;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class GridAdapter extends BaseAdapter {
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 
-    Context context;
-    String[] cropName;
-    int[] image;
+import com.bumptech.glide.Glide;
 
-    LayoutInflater inflater;
+import java.util.ArrayList;
+import java.util.List;
 
-    public GridAdapter(Context context, String[] cropName, int[] image) {
+public class GridAdapter extends RecyclerView.Adapter<MyViewHolder> {
+
+    private Context context;
+    private List<ProductClass> dataList;
+
+    public GridAdapter(Context context, List<ProductClass> dataList) {
         this.context = context;
-        this.cropName = cropName;
-        this.image = image;
+        this.dataList = dataList;
+    }
+
+    @NonNull
+    @Override
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_item, parent, false);
+        return new MyViewHolder(view);
     }
 
     @Override
-    public int getCount() {
-        return cropName.length;
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        Glide.with(context).load(dataList.get(position).getImageURL()).into(holder.grid_image);
+        holder.item_name.setText(dataList.get(position).getProductName());
+
+
+        holder.gridView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, Consumer_ProductListing.class);
+                intent.putExtra("imageURl", dataList.get(holder.getAdapterPosition()).getImageURL());
+                intent.putExtra("productName", dataList.get(holder.getAdapterPosition()).getProductName());
+
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
-    public Object getItem(int position) {
-        return null;
+    public int getItemCount() {
+        return dataList.size();
     }
 
-    @Override
-    public long getItemId(int position) {
-        return 0;
+    public void searchDataList(ArrayList<ProductClass> searchList){
+        dataList = searchList;
+        notifyDataSetChanged();
     }
+}
 
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+class MyViewHolder extends RecyclerView.ViewHolder{
 
-        if (inflater == null)
-            inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    CardView gridView;
+    TextView item_name ;
+    ImageView grid_image;
 
-        if (convertView == null){
 
-            convertView = inflater.inflate(R.layout.grid_item,null);
+    public MyViewHolder(@NonNull View itemView) {
+        super(itemView);
 
-        }
+        grid_image = itemView.findViewById(R.id.grid_image);
+        item_name = itemView.findViewById(R.id.item_name);
+        gridView = itemView.findViewById(R.id.gridView);
 
-        ImageView imageView = convertView.findViewById(R.id.grid_image);
-        TextView textView = convertView.findViewById(R.id.item_name);
 
-        imageView.setImageResource(image[position]);
-        textView.setText(cropName[position]);
 
-        return convertView;
     }
 }

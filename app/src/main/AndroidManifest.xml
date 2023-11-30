@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
 
     <application
@@ -17,16 +18,28 @@
         android:theme="@style/Theme.Agri"
         tools:targetApi="31">
         <activity
-            android:name=".Customer_AddProduct"
+            android:name=".MerchantProductCategory"
+            android:exported="false" />
+        <activity
+            android:name=".Consumer_ProductListing"
+            android:exported="false" />
+        <activity
+            android:name=".Merchant_AddProductRootcrops"
+            android:exported="false" />
+        <activity
+            android:name=".Merchant_AddProductFruits"
+            android:exported="false" />
+        <activity
+            android:name=".Merchant_AddProductVegetables"
+            android:exported="false" />
+        <activity
+            android:name=".Merchant_AddProductGrains"
             android:exported="false" />
         <activity
             android:name=".Merchant_Login"
             android:exported="false" />
         <activity
             android:name=".Merchant"
-            android:exported="false" />
-        <activity
-            android:name=".MerchantProductCategory"
             android:exported="false" />
         <activity
             android:name=".MerchantProfile"
@@ -85,6 +98,7 @@
         <activity
             android:name=".productoffering_Merchant"
             android:exported="false" />
+
         <activity
             android:name=".CreatebrandMerchant"
             android:exported="false" />
@@ -97,7 +111,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

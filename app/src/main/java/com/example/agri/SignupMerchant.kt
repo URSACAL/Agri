@@ -1,6 +1,7 @@
 package com.example.agri
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import android.view.View
@@ -42,6 +43,10 @@ class SignupMerchant : AppCompatActivity() {
             if (passwordText != confirmPasswordText) {
                 Toast.makeText(this@SignupMerchant, "Passwords do not match", Toast.LENGTH_SHORT).show()
                 return@OnClickListener
+            }
+            else {
+                val intent: Intent = Intent(this, MerchantProfile::class.java)
+                startActivity(intent)
             }
 
             // Perform Firebase registration
