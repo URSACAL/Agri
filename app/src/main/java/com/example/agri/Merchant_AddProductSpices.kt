@@ -8,11 +8,11 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 
-class Merchant_AddProductRootcrops : AppCompatActivity() {
+class Merchant_AddProductSpices : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_merchant_add_product_rootcrops)
+        setContentView(R.layout.activity_merchant_add_product_spieces)
 
         val spinner3: Spinner = findViewById(R.id.productspinner)
         val options: Array<String> = resources.getStringArray(R.array.spices_option)

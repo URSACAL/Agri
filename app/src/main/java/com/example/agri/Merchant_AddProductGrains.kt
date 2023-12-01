@@ -1,50 +1,42 @@
 package com.example.agri
 
-//noinspection SuspiciousImport
-
-
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Spinner
-import android.widget.Toast
+import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toBitmap
-import com.google.firebase.Firebase
+import com.google.firebase.FirebaseApp
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.database
-import com.google.firebase.initialize
 import com.google.firebase.storage.FirebaseStorage
 import java.io.ByteArrayOutputStream
 
-
-
 class Merchant_AddProductGrains : AppCompatActivity() {
 
-
-    data class User(
+    data class ProductClass(
         val ProductSKU: String,
         val ProductName: String,
         val ProductDesc: String,
-        val imageURL: String
+        val ProductType: String,
+        val ProductQuantity: String,
+        var imageURL: String? = null
     )
 
-    //
     var imageURL: String? = null
     var uri: Uri? = null
 
+    @SuppressLint("WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_merchant_addproductgrains)
+
+        FirebaseApp.initializeApp(this)
+        val firebaseDatabase = FirebaseDatabase.getInstance()
 
         val spinner1: Spinner = findViewById(R.id.productspinner)
         val options: Array<String> = resources.getStringArray(R.array.grains_option)
@@ -55,7 +47,7 @@ class Merchant_AddProductGrains : AppCompatActivity() {
 
         // Set a listener if needed
         spinner1.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parentView: AdapterView<*>, selectedItemView: View, position: Int, id: Long) {
+            override fun onItemSelected(parentView: AdapterView<*>, selectedItemView: View?, position: Int, id: Long) {
                 // Do something with the selected item
             }
 
@@ -64,36 +56,16 @@ class Merchant_AddProductGrains : AppCompatActivity() {
             }
         }
 
-
-        Firebase.initialize(this)
-        var firebaseDatabase = Firebase.database
-
         val Productsku = findViewById<EditText>(R.id.productsku)
         val Productname = findViewById<EditText>(R.id.productname)
         val Productdesc = findViewById<EditText>(R.id.productdesc)
+        val Productquantity = findViewById<EditText>(R.id.editTextNumber)
 
-        val spinner = findViewById<Spinner>(R.id.productspinner)
         val Addproduct = findViewById<Button>(R.id.addproduct)
         val Productimage = findViewById<ImageView>(R.id.productimage)
 
-//        spinner.onItemSelectedListener
-//        run {
-//            val list: MutableList<String> = ArrayList()
-//            list.add("Grain")
-//            list.add("Vegetable")
-//            list.add("Crops")
-//            list.add("Fruits")
-//
-//            val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, list)
-//            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-//            spinner.setAdapter(adapter)
-//
-//        }
-
-
         val activityResultLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-                val Productimage = findViewById<ImageView>(R.id.productimage)
                 val resultCode = result.resultCode
                 if (resultCode == RESULT_OK) {
                     val data: Intent? = result.data
@@ -104,25 +76,24 @@ class Merchant_AddProductGrains : AppCompatActivity() {
                 }
             }
 
+        Productimage.setOnClickListener {
+            val photoPicker = Intent(Intent.ACTION_PICK)
+            photoPicker.type = "image/*"
+            activityResultLauncher.launch(photoPicker)
+        }
 
-        Productimage.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(view: View?) {
-                val photoPicker = Intent(Intent.ACTION_PICK)
-                photoPicker.type = "image/*"
-                activityResultLauncher.launch(photoPicker)
-            }
-        })
-
-        Addproduct.setOnClickListener() {
-            var database: FirebaseDatabase = FirebaseDatabase.getInstance()
+        Addproduct.setOnClickListener {
+            val database: FirebaseDatabase = FirebaseDatabase.getInstance()
             val reference: DatabaseReference =
                 database.reference.child("Add Products") // Change this to a meaningful node name
 
             val productSKU = Productsku.text.toString()
             val productName = Productname.text.toString()
             val productDesc = Productdesc.text.toString()
+            val productType = spinner1.selectedItem.toString()
+            val productQuantity = Productquantity.text.toString()
 
-            val ProductClass = ProductClass(productSKU, productName, productDesc)
+            val productClass = ProductClass(productSKU, productName, productDesc, productType, productQuantity)
 
             // Generate a unique key for each product
             val productKey = reference.push().key
@@ -155,10 +126,10 @@ class Merchant_AddProductGrains : AppCompatActivity() {
                         if (task.isSuccessful) {
                             val downloadUrl = task.result.toString()
                             // Set the imageURL in your data class
-                            ProductClass.imageURL = downloadUrl
+                            productClass.imageURL = downloadUrl
 
                             // Set other data and push to the database
-                            reference.child(productKey).setValue(ProductClass)
+                            reference.child(productKey).setValue(productClass)
 
                             Toast.makeText(this, "Product added successfully", Toast.LENGTH_SHORT)
                                 .show()
@@ -174,8 +145,6 @@ class Merchant_AddProductGrains : AppCompatActivity() {
         }
     }
 }
-
-
 
 //    private fun writeData(user: User) {
 //
@@ -256,6 +225,21 @@ class Merchant_AddProductGrains : AppCompatActivity() {
 //                "Desc" to ProductDesc,
 //                "imageURL" to imageURL
 //            )
+//        }
+
+
+//        spinner.onItemSelectedListener
+//        run {
+//            val list: MutableList<String> = ArrayList()
+//            list.add("Grain")
+//            list.add("Vegetable")
+//            list.add("Crops")
+//            list.add("Fruits")
+//
+//            val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, list)
+//            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+//            spinner.setAdapter(adapter)
+//
 //        }
 
 

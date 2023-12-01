@@ -36,7 +36,7 @@ class MerchantProductCategory : AppCompatActivity() {
 
         rootcrops.setOnClickListener {
             // Navigate to Merchant_AddProductRootcrops activity
-            val intent = Intent(this, Merchant_AddProductRootcrops::class.java)
+            val intent = Intent(this, Merchant_AddProductSpices::class.java)
             startActivity(intent)
         }
     }

@@ -45,7 +45,12 @@ public class GridAdapter extends RecyclerView.Adapter<MyViewHolder> {
             public void onClick(View view) {
                 Intent intent = new Intent(context, Consumer_ProductListing.class);
                 intent.putExtra("imageURl", dataList.get(holder.getAdapterPosition()).getImageURL());
+                intent.putExtra("productSKU", dataList.get(holder.getAdapterPosition()).getProductSKU());
                 intent.putExtra("productName", dataList.get(holder.getAdapterPosition()).getProductName());
+                intent.putExtra("productDesc", dataList.get(holder.getAdapterPosition()).getProductDesc());
+                intent.putExtra("productType", dataList.get(holder.getAdapterPosition()).getProductType());
+                intent.putExtra("productQuantity", dataList.get(holder.getAdapterPosition()).getProductQuantity());
+
 
                 context.startActivity(intent);
             }

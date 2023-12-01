@@ -24,7 +24,7 @@
             android:name=".Consumer_ProductListing"
             android:exported="false" />
         <activity
-            android:name=".Merchant_AddProductRootcrops"
+            android:name=".Merchant_AddProductSpices"
             android:exported="false" />
         <activity
             android:name=".Merchant_AddProductFruits"
@@ -56,9 +56,7 @@
         <activity
             android:name=".MerchantSignedContracts"
             android:exported="false" />
-        <activity
-            android:name=".MerchantAuthentication"
-            android:exported="false" />
+
         <activity
             android:name=".ConsumerProductListingDIrectory"
             android:exported="false" />
@@ -74,9 +72,7 @@
         <activity
             android:name=".ConsumerSignedContracts"
             android:exported="false" />
-        <activity
-            android:name=".ConsumerAuthentication"
-            android:exported="false" />
+
         <activity
             android:name=".ConsumerProfile"
             android:exported="false" />

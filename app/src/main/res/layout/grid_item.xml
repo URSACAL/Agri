@@ -12,25 +12,33 @@
     app:cardElevation="8dp">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="142dp"
+        android:layout_height="129dp">
 
 
         <ImageView
 
+            android:id="@+id/grid_image"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:scaleType="centerCrop"
-            android:id="@+id/grid_image"/>
-
+            android:scaleType="centerCrop" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/item_name"
+            android:layout_width="114dp"
+            android:layout_height="30dp"
+            android:layout_alignEnd="@+id/grid_image"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="93dp"
+            android:layout_marginEnd="21dp"
+            android:layout_marginBottom="6dp"
             android:text="Rose"
-            android:textSize="26sp"
-            android:layout_marginTop="6dp"/>
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 

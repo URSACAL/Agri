@@ -7,92 +7,6 @@
     tools:context=".MerchantProductCategory"
     android:background="#569664"> <!-- Green background for a nature-themed style -->
 
-    <TextView
-        android:id="@+id/productDataTextView2"
-        android:layout_width="204dp"
-        android:layout_height="41dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.589"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.647" />
-
-    <TextView
-        android:id="@+id/productDataTextView3"
-        android:layout_width="204dp"
-        android:layout_height="41dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.589"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.647" />
-
-    <TextView
-        android:id="@+id/productDataTextView4"
-        android:layout_width="204dp"
-        android:layout_height="41dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.589"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.736" />
-
-    <TextView
-        android:id="@+id/textView31"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="end"
-        android:text="Product SKU:"
-        android:textAlignment="textEnd"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.067"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.629" />
-
-    <TextView
-        android:id="@+id/textView30"
-        android:layout_width="77dp"
-        android:layout_height="38dp"
-        android:gravity="end"
-        android:text="Product Description:"
-        android:textAlignment="textEnd"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.089"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8" />
-
-    <TextView
-        android:id="@+id/textView29"
-        android:layout_width="60dp"
-        android:layout_height="37dp"
-        android:text="Product Name:"
-        android:textAlignment="textEnd"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.133"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.71" />
-
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="91dp"
@@ -145,7 +59,7 @@
         android:layout_width="242dp"
         android:layout_height="29dp"
         android:layout_marginTop="10dp"
-        android:text="Grains Farmenrs Directory"
+        android:text="Farmenrs Directory"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
@@ -158,28 +72,113 @@
         app:layout_constraintVertical_bias="0.197" />
 
     <ImageView
-        android:id="@+id/grains"
-        android:layout_width="167dp"
-        android:layout_height="151dp"
+        android:id="@+id/Pimage"
+        android:layout_width="188dp"
+        android:layout_height="148dp"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.479"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.387"
+        app:layout_constraintVertical_bias="0.354"
         app:srcCompat="@drawable/grains" />
 
-    <TextView
-        android:id="@+id/productDataTextView"
-        android:layout_width="204dp"
-        android:layout_height="41dp"
-        android:text="TextView"
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.608"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.828" />
+        app:layout_constraintVertical_bias="0.659">
+
+        <!-- Table Header Row -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#CCCCCC">
+
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Product SKU" />
+
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Product Name" />
+
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Description " />
+
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Product Type" />
+
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Quality" />
+        </TableRow>
+
+        <!-- Table Rows -->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF">
+
+            <!-- Row 1, Column 1-5 -->
+            <TextView
+                android:id="@+id/PSKU"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Row 1, Col 1" />
+
+            <TextView
+                android:id="@+id/Pname"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Row 1, Col 2" />
+
+            <TextView
+                android:id="@+id/Pdesc"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Row 1, Col 3" />
+
+            <TextView
+                android:id="@+id/Ptype"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Row 1, Col 4" />
+
+            <TextView
+                android:id="@+id/Pquantity"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Row 1, Col 5" />
+        </TableRow>
+
+        <!-- Add Rows 2-5 similarly -->
+
+    </TableLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

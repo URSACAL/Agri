@@ -1,6 +1,7 @@
 package com.example.agri
 
 import android.app.Activity
+import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
@@ -11,6 +12,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -72,8 +74,7 @@ class MerchantProfile : AppCompatActivity() {
             reference.child(OwnersName).setValue(Merchant)
 
            // checkCaptcha()
-            val intent = Intent(this, MerchantAuthentication::class.java)
-            startActivity(intent)
+            showAlert()
         }
 
     }
@@ -134,8 +135,7 @@ class MerchantProfile : AppCompatActivity() {
             generateCaptcha()
             captchaEditText.setText("")
             Toast.makeText(this@MerchantProfile, "You have submitted successfully!", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, MerchantAuthentication::class.java)
-            startActivity(intent)
+            showAlert()
         } else {
             // Captcha is incorrect
             // Add your logic here
@@ -144,5 +144,26 @@ class MerchantProfile : AppCompatActivity() {
         }
     }
 
+    private fun showAlert() {
+        val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(this)
 
+        // Set the alert dialog title and message
+        alertDialogBuilder.setTitle("Registration Submitted")
+        alertDialogBuilder.setMessage("You've successfully submitted your registration and pending for approval")
+
+        // Set the positive button and its click listener
+        alertDialogBuilder.setPositiveButton("Merchant Profile", DialogInterface.OnClickListener { _, _ ->
+            // Navigate to another page (replace YourTargetActivity::class.java with the actual activity)
+            val intent = Intent(this@MerchantProfile, MerchantSignedContracts::class.java)
+            startActivity(intent)
+            finish() // Optional: Close the current activity if needed
+        })
+
+        // Create and show the alert dialog
+        val alertDialog: AlertDialog = alertDialogBuilder.create()
+        alertDialog.show()
+    }
 }
+
+
+

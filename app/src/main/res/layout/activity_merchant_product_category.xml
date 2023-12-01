@@ -127,7 +127,7 @@
         android:layout_width="157dp"
         android:layout_height="31dp"
         android:layout_marginTop="10dp"
-        android:text="Root Crops"
+        android:text="Spices"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
@@ -189,7 +189,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.846"
-        app:srcCompat="@drawable/root" />
+        app:srcCompat="@drawable/spices" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

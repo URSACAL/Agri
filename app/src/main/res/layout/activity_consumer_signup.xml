@@ -110,22 +110,22 @@
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
-        android:layout_width="174dp"
-        android:layout_height="29dp"
+        android:layout_width="178dp"
+        android:layout_height="40dp"
         android:ems="10"
         android:inputType="textEmailAddress"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.89"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.586"
-        android:textColor="#000000" />
+        app:layout_constraintVertical_bias="0.586" />
 
     <EditText
         android:id="@+id/editTextTextPassword"
-        android:layout_width="172dp"
-        android:layout_height="35dp"
+        android:layout_width="178dp"
+        android:layout_height="40dp"
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -138,8 +138,8 @@
 
     <EditText
         android:id="@+id/editTextTextPassword2"
-        android:layout_width="172dp"
-        android:layout_height="35dp"
+        android:layout_width="178dp"
+        android:layout_height="40dp"
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"

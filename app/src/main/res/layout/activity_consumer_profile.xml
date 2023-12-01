@@ -6,19 +6,32 @@
     android:layout_height="match_parent"
     android:background="#569664"> <!-- Green background for a green style -->
 
+    <EditText
+        android:id="@+id/captchaEditText"
+        android:layout_width="158dp"
+        android:layout_height="44dp"
+        android:layout_below="@+id/imageView8"
+        android:hint="Enter Captcha"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.836" />
+
+
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="103dp"
         android:layout_height="73dp"
         android:layout_marginTop="10dp"
+        android:contentDescription="Image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.754"
-        app:srcCompat="@android:drawable/editbox_dropdown_light_frame"
-        android:contentDescription="Image" />
+        app:layout_constraintVertical_bias="0.734"
+        app:srcCompat="@android:drawable/editbox_dropdown_light_frame" />
 
     <ImageView
         android:id="@+id/imageView6"
@@ -203,13 +216,12 @@
         android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#0A6939"
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.903"
-        android:backgroundTint="#0A6939" /> <!-- Darker green color for the button -->
+        app:layout_constraintVertical_bias="0.932" /> <!-- Darker green color for the button -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
