@@ -39,7 +39,6 @@ public class GridAdapter extends RecyclerView.Adapter<MyViewHolder> {
         Glide.with(context).load(dataList.get(position).getImageURL()).into(holder.grid_image);
         holder.item_name.setText(dataList.get(position).getProductName());
 
-
         holder.gridView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,7 +53,9 @@ public class GridAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
                 context.startActivity(intent);
             }
+
         });
+
     }
 
     @Override
@@ -81,6 +82,7 @@ class MyViewHolder extends RecyclerView.ViewHolder{
         grid_image = itemView.findViewById(R.id.grid_image);
         item_name = itemView.findViewById(R.id.item_name);
         gridView = itemView.findViewById(R.id.gridView);
+
 
 
 

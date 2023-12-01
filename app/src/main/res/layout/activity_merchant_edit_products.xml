@@ -181,16 +181,28 @@
     </TableLayout>
 
     <Button
-        android:id="@+id/agreement"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Proceed to Agreement"
+        android:id="@+id/delete"
+        android:layout_width="107dp"
+        android:layout_height="47dp"
+        android:text="Delete"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.796"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.891" />
+        app:layout_constraintVertical_bias="0.87" />
+
+    <Button
+        android:id="@+id/update"
+        android:layout_width="107dp"
+        android:layout_height="47dp"
+        android:text="Update"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.151"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.872" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

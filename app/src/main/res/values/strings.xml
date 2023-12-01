@@ -44,12 +44,12 @@
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
 
-        <string name="choose_option">Choose an option</string>
-        <string-array name="grains_option">
-            <item>Rice</item>
-            <item>Corn</item>
+    <string name="choose_option">Choose an option</string>
+    <string-array name="grains_option">
+        <item>Rice</item>
+        <item>Corn</item>
 
-        </string-array>
+    </string-array>
 
     <string name="choose_option1">Choose an option</string>
     <string-array name="fruits_option">

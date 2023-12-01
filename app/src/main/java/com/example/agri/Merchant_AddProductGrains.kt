@@ -38,6 +38,7 @@ class Merchant_AddProductGrains : AppCompatActivity() {
         FirebaseApp.initializeApp(this)
         val firebaseDatabase = FirebaseDatabase.getInstance()
 
+        val edit = findViewById<Button>(R.id.Editproduct)
         val spinner1: Spinner = findViewById(R.id.productspinner)
         val options: Array<String> = resources.getStringArray(R.array.grains_option)
 
@@ -142,7 +143,13 @@ class Merchant_AddProductGrains : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Failed to add product", Toast.LENGTH_SHORT).show()
             }
+
         }
+        edit.setOnClickListener {
+            val intent = Intent(this, MerchantProductListingDirectory::class.java)
+            startActivity(intent)
+        }
+
     }
 }
 
