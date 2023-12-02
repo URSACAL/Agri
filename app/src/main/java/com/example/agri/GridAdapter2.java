@@ -1,5 +1,6 @@
 package com.example.agri;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -36,7 +37,7 @@ import java.util.List;
         }
 
         @Override
-        public void onBindViewHolder(@NonNull MyViewHolder2 holder, int position) {
+        public void onBindViewHolder(@NonNull MyViewHolder2 holder, @SuppressLint("RecyclerView") int position) {
             Glide.with(context).load(dataList.get(position).getImageURL()).into(holder.grid_image2);
             holder.item_name2.setText(dataList.get(position).getProductName());
 
@@ -44,23 +45,22 @@ import java.util.List;
                 @Override
                 public void onClick(View view) {
                     // Log to check if onClick is triggered
-                    Log.d("GridAdapter2", "onClick triggered for position: " + holder.getAdapterPosition());
+                    Log.d("GridAdapter2", "onClick triggered for position: " + position);
 
                     Intent intent = new Intent(context, MerchantEditProducts.class);
-                    intent.putExtra("imageURl", dataList.get(holder.getAdapterPosition()).getImageURL());
-                    intent.putExtra("productSKU", dataList.get(holder.getAdapterPosition()).getProductSKU());
-                    intent.putExtra("productName", dataList.get(holder.getAdapterPosition()).getProductName());
-                    intent.putExtra("productDesc", dataList.get(holder.getAdapterPosition()).getProductDesc());
-                    intent.putExtra("productType", dataList.get(holder.getAdapterPosition()).getProductType());
-                    intent.putExtra("productQuantity", dataList.get(holder.getAdapterPosition()).getProductQuantity());
-
+                    intent.putExtra("imageURl", dataList.get(position).getImageURL());
+                    intent.putExtra("productSKU", dataList.get(position).getProductSKU());
+                    intent.putExtra("productName", dataList.get(position).getProductName());
+                    intent.putExtra("productDesc", dataList.get(position).getProductDesc());
+                    intent.putExtra("productType", dataList.get(position).getProductType());
+                    intent.putExtra("productQuantity", dataList.get(position).getProductQuantity());
+                    intent.putExtra("Key", dataList.get(position).getKey());
                     // Log to check values before starting the activity
                     Log.d("GridAdapter2", "Intent values: " + intent.getExtras());
 
                     context.startActivity(intent);
                 }
             });
-
         }
 
         @Override

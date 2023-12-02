@@ -24,7 +24,7 @@ class MerchantProductListingDirectory : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_merchant_product_listing_directory)
 
-        recyclerView = findViewById(R.id.recyclerView)
+        recyclerView = findViewById(R.id.recyclerView2)
         val gridLayoutManager = GridLayoutManager(this, 2)
         recyclerView.layoutManager = gridLayoutManager
 
@@ -41,19 +41,22 @@ class MerchantProductListingDirectory : AppCompatActivity() {
         databaseReference = FirebaseDatabase.getInstance().getReference("Add Products")
         dialog.show()
         eventListener = databaseReference.addValueEventListener(object : ValueEventListener {
+
+
             override fun onDataChange(snapshot: DataSnapshot) {
                 dataList.clear()
                 for (itemSnapshot in snapshot.children) {
                     val dataClass = itemSnapshot.getValue(ProductClass::class.java)
 
                     dataClass?.let {
-                        it.key = itemSnapshot.key
+                        it.key = itemSnapshot.key // Use the key property directly
                         dataList.add(it)
                     }
                 }
                 adapter.notifyDataSetChanged()
                 dialog.dismiss()
             }
+
 
             override fun onCancelled(error: DatabaseError) {
                 dialog.dismiss()

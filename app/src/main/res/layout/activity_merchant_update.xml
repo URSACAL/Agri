@@ -91,7 +91,7 @@
 
 
     <EditText
-        android:id="@+id/productsku"
+        android:id="@+id/Uproductsku"
         android:layout_width="188dp"
         android:layout_height="44dp"
         android:clickable="false"
@@ -105,7 +105,7 @@
         app:layout_constraintVertical_bias="0.315" />
 
     <EditText
-        android:id="@+id/productname"
+        android:id="@+id/Uproductname"
         android:layout_width="188dp"
         android:layout_height="44dp"
         android:clickable="false"
@@ -135,7 +135,7 @@
         app:layout_constraintVertical_bias="0.389" />
 
     <EditText
-        android:id="@+id/productdesc"
+        android:id="@+id/Uproductdesc"
         android:layout_width="189dp"
         android:layout_height="47dp"
         android:clickable="false"
@@ -149,7 +149,7 @@
         app:layout_constraintVertical_bias="0.522" />
 
     <EditText
-        android:id="@+id/productspinner"
+        android:id="@+id/Uproducttype"
         android:layout_width="189dp"
         android:layout_height="47dp"
         android:clickable="false"
@@ -157,10 +157,10 @@
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.124"
+        app:layout_constraintHorizontal_bias="0.186"
         app:layout_constraintStart_toEndOf="@+id/textView15"
-        app:layout_constraintTop_toBottomOf="@+id/productdesc"
-        app:layout_constraintVertical_bias="0.08" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.607" />
 
     <TextView
         android:id="@+id/textView26"
@@ -233,7 +233,7 @@
         app:layout_constraintVertical_bias="0.069" />
 
     <ImageView
-        android:id="@+id/productimage"
+        android:id="@+id/Uproductimage"
         android:layout_width="43dp"
         android:layout_height="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -245,7 +245,7 @@
         app:srcCompat="@android:drawable/ic_menu_upload" />
 
     <Button
-        android:id="@+id/addproduct"
+        android:id="@+id/Uproduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Update"
@@ -257,7 +257,7 @@
         app:layout_constraintVertical_bias="0.883" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/Uproductquan"
         android:layout_width="87dp"
         android:layout_height="52dp"
         android:ems="10"

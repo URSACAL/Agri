@@ -10,6 +10,15 @@ public class ProductClass {
     @Nullable
     public String key;
 
+    @Nullable
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(@Nullable String key) {
+        this.key = key;
+    }
+
     public ProductClass() {
     }
 
