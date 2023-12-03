@@ -1,3 +1,4 @@
+package com.example.agri;
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -14,16 +15,13 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import com.example.agri.MerchantProductListingDirectory
-import com.example.agri.ProductClass
-import com.example.agri.R
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.UploadTask
 
-class MerchantUpdate : AppCompatActivity() {
+class MerchantUpdates : AppCompatActivity() {
 
 
     private lateinit var ProductSKU: EditText
@@ -36,7 +34,7 @@ class MerchantUpdate : AppCompatActivity() {
 
 
     private var uri: Uri? = null
-    private var imageURL: String? = null
+    private var imageURl: String? = null
     private var key: String? = null
     private var oldImageURL: String? = null
 
@@ -52,7 +50,7 @@ class MerchantUpdate : AppCompatActivity() {
                     uri = data?.data
                     ProductImage.setImageURI(uri)
                 } else {
-                    Toast.makeText(this@MerchantUpdate, "No Image Selected", Toast.LENGTH_SHORT)
+                    Toast.makeText(this@MerchantUpdates, "No Image Selected", Toast.LENGTH_SHORT)
                         .show()
                 }
             })
@@ -60,7 +58,7 @@ class MerchantUpdate : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_merchant_update)
+        setContentView(R.layout.activity_merchant_updates)
 
         ProductSKU = findViewById(R.id.Uproductsku)
         ProductName = findViewById(R.id.Uproductname)
@@ -72,7 +70,7 @@ class MerchantUpdate : AppCompatActivity() {
 
         val bundle = intent.extras
         if (bundle != null) {
-            Glide.with(this@MerchantUpdate).load(bundle.getString("imageURl")).into(ProductImage)
+            Glide.with(this@MerchantUpdates).load(bundle.getString("imageURL")).into(ProductImage)
             ProductSKU.setText(bundle.getString("productSKU"))
             ProductName.setText(bundle.getString("productName"))
             ProductDesc.setText(bundle.getString("productDesc"))
@@ -94,8 +92,9 @@ class MerchantUpdate : AppCompatActivity() {
         }
 
         updateButton.setOnClickListener {
+
             saveData()
-            val intent = Intent(this@MerchantUpdate, MerchantProductListingDirectory::class.java)
+            val intent = Intent(this@MerchantUpdates, MerchantProductListingDirectory::class.java)
             startActivity(intent)
         }
     }
@@ -109,16 +108,16 @@ class MerchantUpdate : AppCompatActivity() {
             .addOnSuccessListener { taskSnapshot: UploadTask.TaskSnapshot ->
                 storageReference.downloadUrl
                     .addOnSuccessListener { uri ->
-                        imageURL = uri.toString()
+                        imageURl = uri.toString()
                         updateData()
 
                     }
                     .addOnFailureListener { e ->
-                        Toast.makeText(this@MerchantUpdate, "Failed to get image URL: ${e.message}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@MerchantUpdates, "Failed to get image URL: ${e.message}", Toast.LENGTH_SHORT).show()
                     }
             }
             .addOnFailureListener { e: Exception ->
-                Toast.makeText(this@MerchantUpdate, "Failed to upload image: ${e.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@MerchantUpdates, "Failed to upload image: ${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
 
@@ -136,7 +135,8 @@ class MerchantUpdate : AppCompatActivity() {
             productName,
             productDesc,
             productType,
-            productQuantity
+            productQuantity,
+
         )
 
         databaseReference.setValue(productClass)
@@ -145,12 +145,12 @@ class MerchantUpdate : AppCompatActivity() {
                     val reference =
                         FirebaseStorage.getInstance().getReferenceFromUrl(oldImageURL!!)
                     reference.delete()
-                    Toast.makeText(this@MerchantUpdate, "Updated", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@MerchantUpdates, "Updated", Toast.LENGTH_SHORT).show()
                     finish()
                 }
             }
             .addOnFailureListener { e: Exception ->
-                Toast.makeText(this@MerchantUpdate, e.message.toString(), Toast.LENGTH_SHORT)
+                Toast.makeText(this@MerchantUpdates, e.message.toString(), Toast.LENGTH_SHORT)
                     .show()
             }
     }

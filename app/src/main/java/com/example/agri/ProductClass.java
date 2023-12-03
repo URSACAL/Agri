@@ -65,12 +65,14 @@ public class ProductClass {
     }
 
 
+
     public ProductClass(String productSKU, String productName, String productDesc,  String productType,  String productQuantity) {
         ProductSKU = productSKU;
         ProductName = productName;
         ProductDesc = productDesc;
         ProductType = productType;
         ProductQuantity = productQuantity;
+
     }
 
 }

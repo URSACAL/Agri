@@ -17,11 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Agri"
         tools:targetApi="31">
-        <activity
-            android:name=".MerchantUpdate"
-            android:exported="false" />
+
         <activity
             android:name=".MerchantProductListingDirectory"
+            android:exported="false" />
+        <activity
+            android:name=".MerchantUpdates"
             android:exported="false" />
         <activity
             android:name=".MerchantEditProducts"

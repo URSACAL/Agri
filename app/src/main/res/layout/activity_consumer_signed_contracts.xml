@@ -177,19 +177,6 @@
         app:layout_constraintVertical_bias="0.445"
         android:textColor="#000000" />
 
-    <Button
-        android:id="@+id/contracts"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Signed Contracts"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.704"
-        android:textColor="#FFFFFF"
-        android:backgroundTint="#0A6939" /> <!-- Darker green color for the button -->
 
     <ImageButton
         android:id="@+id/back"

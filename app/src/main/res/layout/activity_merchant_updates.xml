@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#569664"
-    tools:context=".Merchant_AddProductVegetables"> <!-- Green background for a nature-themed style -->
+    tools:context=".MerchantUpdates"> <!-- Green background for a nature-themed style -->
 
     <ImageView
         android:id="@+id/imageView6"

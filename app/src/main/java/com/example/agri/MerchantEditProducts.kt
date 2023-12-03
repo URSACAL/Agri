@@ -1,6 +1,5 @@
 package com.example.agri
 
-import MerchantUpdate
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
@@ -56,7 +55,7 @@ class MerchantEditProducts : AppCompatActivity() {
 
         update.setOnClickListener {
             // Define the behavior here (e.g., navigate to a new activity)
-            val intent = Intent(this, MerchantUpdate::class.java)
+            val intent = Intent(this, MerchantUpdates::class.java)
             startActivity(intent)
         }
         delete.setOnClickListener {
@@ -80,7 +79,7 @@ class MerchantEditProducts : AppCompatActivity() {
         }
 
         update.setOnClickListener {
-            val intent = Intent(this@MerchantEditProducts, MerchantUpdate::class.java)
+            val intent = Intent(this@MerchantEditProducts, MerchantUpdates::class.java)
                 .putExtra("productSKU", ProductSKU.text.toString())
                 .putExtra("productName", ProductName.text.toString())
                 .putExtra("productDesc", ProductDesc.text.toString())

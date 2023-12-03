@@ -74,7 +74,7 @@ class ConsumerProfile : AppCompatActivity() {
             )
             reference.child(OwnersName).setValue(Merchant)
 
-            // checkCaptcha()
+            checkCaptcha()
             showAlert()
         }
     }
