@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MerchantSignedContracts"
-    android:background="#569664"> <!-- Green background for a nature-themed style -->
+    android:background="#569664"
+    tools:context=".MerchantSignedContracts"> <!-- Green background for a nature-themed style -->
 
     <ImageView
         android:id="@+id/imageView6"
@@ -24,8 +24,10 @@
         android:id="@+id/textView9"
         android:layout_width="97dp"
         android:layout_height="20dp"
+        android:gravity="center_horizontal"
         android:text="..."
         android:textAlignment="center"
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -33,9 +35,7 @@
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.0"
-        android:textColor="#FFFFFF"
-        android:gravity="center_horizontal" /> <!-- White text color -->
+        app:layout_constraintVertical_bias="0.0" /> <!-- White text color -->
 
     <TextView
         android:id="@+id/textView10"
@@ -62,6 +62,7 @@
         android:layout_marginTop="10dp"
         android:text="Merchant Profile"
         android:textAlignment="center"
+        android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -69,15 +70,16 @@
         app:layout_constraintHorizontal_bias="0.745"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.144"
-        android:textColor="#FFFFFF" /> <!-- White text color -->
+        app:layout_constraintVertical_bias="0.144" /> <!-- White text color -->
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="end"
         android:text="Merchant Name:"
         android:textAlignment="textEnd"
+        android:textColor="#FFFFFF"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -85,9 +87,7 @@
         app:layout_constraintHorizontal_bias="0.159"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.323"
-        android:textColor="#FFFFFF"
-        android:gravity="end" /> <!-- White text color -->
+        app:layout_constraintVertical_bias="0.323" /> <!-- White text color -->
 
     <TextView
         android:id="@+id/textView13"
@@ -95,6 +95,7 @@
         android:layout_height="wrap_content"
         android:text="Address:"
         android:textAlignment="textEnd"
+        android:textColor="#FFFFFF"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -102,15 +103,16 @@
         app:layout_constraintHorizontal_bias="0.276"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.384"
-        android:textColor="#FFFFFF" /> <!-- White text color -->
+        app:layout_constraintVertical_bias="0.384" /> <!-- White text color -->
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="end"
         android:text="Contact Number:"
         android:textAlignment="textEnd"
+        android:textColor="#FFFFFF"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -118,15 +120,13 @@
         app:layout_constraintHorizontal_bias="0.156"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.455"
-        android:textColor="#FFFFFF"
-        android:gravity="end" /> <!-- White text color -->
+        app:layout_constraintVertical_bias="0.455" /> <!-- White text color -->
 
-    <EditText
+    <TextView
         android:id="@+id/MP_OwnerName"
         android:layout_width="195dp"
         android:layout_height="43dp"
-        android:clickable="false"
+        android:editable="false"
         android:ems="10"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -134,38 +134,40 @@
         app:layout_constraintHorizontal_bias="0.828"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.321" />
+        app:layout_constraintVertical_bias="0.332" />
 
-    <EditText
+    <TextView
         android:id="@+id/MP_OwnerAddress"
         android:layout_width="196dp"
         android:layout_height="41dp"
-        android:clickable="false"
+        android:editable="false"
         android:ems="10"
-        android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.827"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.382" />
+        app:layout_constraintVertical_bias="0.394"
+        tools:ignore="Deprecated" />
+
+    <!-- White text color -->
 
     <TextView
         android:id="@+id/textView15"
         android:layout_width="92dp"
         android:layout_height="31dp"
+        android:gravity="end"
         android:text="Valid ID:"
         android:textAlignment="textEnd"
+        android:textColor="#FFFFFF"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.197"
+        app:layout_constraintHorizontal_bias="0.196"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.511"
-        android:textColor="#FFFFFF"
-        android:gravity="end" /> <!-- White text color -->
+        app:layout_constraintVertical_bias="0.534" />
 
     <ImageView
         android:id="@+id/imageView7"
@@ -179,11 +181,11 @@
         app:layout_constraintVertical_bias="0.529"
         app:srcCompat="@android:drawable/ic_menu_upload" />
 
-    <EditText
+    <TextView
         android:id="@+id/MP_OwnerContact"
         android:layout_width="196dp"
         android:layout_height="46dp"
-        android:clickable="false"
+        android:editable="false"
         android:ems="10"
         android:inputType="phone"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -191,7 +193,7 @@
         app:layout_constraintHorizontal_bias="0.827"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.445" />
+        app:layout_constraintVertical_bias="0.471" />
 
     <Button
         android:id="@+id/contracts"
@@ -209,13 +211,13 @@
         android:id="@+id/back"
         android:layout_width="104dp"
         android:layout_height="55dp"
+        android:backgroundTint="#0A6939"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.53"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.859"
-        app:srcCompat="@android:drawable/ic_media_previous"
-        android:backgroundTint="#0A6939" /> <!-- White icon color for the button -->
+        app:srcCompat="@android:drawable/ic_media_previous" /> <!-- White icon color for the button -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
