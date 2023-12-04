@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DatabaseReference
@@ -28,6 +29,8 @@ class MerchantProfile : AppCompatActivity() {
     private lateinit var imageUri: Uri
 
 
+    private var isPhotoUploaded = false
+    private lateinit var selectedImageUri: Uri
     private var captchaText = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,24 +62,45 @@ class MerchantProfile : AppCompatActivity() {
             database = FirebaseDatabase.getInstance()
             reference = database.getReference("MerchantProfile")
 
-            val OwnersName = OwnersName.text.toString()
-            val Address = Address.text.toString()
-            val ContactNumber = ContactNumber.text.toString()
-            val BusinessName = BusinessName.text.toString()
+            val ownersName = OwnersName.text.toString()
+            val address = Address.text.toString()
+            val contactNumber = ContactNumber.text.toString()
+            val businessName = BusinessName.text.toString()
 
+            // Check if any of the fields is empty
+            if (ownersName.isEmpty() || address.isEmpty() || contactNumber.isEmpty() || businessName.isEmpty()) {
+                // Show a Toast message indicating that all fields must be filled
+                Toast.makeText(
+                    this@MerchantProfile,
+                    "Please fill in all fields",
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
 
-            val Merchant = MerchantprofileClass(
-                OwnersName,
-                Address,
-                ContactNumber,
-                BusinessName
-               )
-            reference.child(OwnersName).setValue(Merchant)
+            if (!isPhotoUploaded) {
+                Toast.makeText(this, "Please upload a photo", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val merchant = MerchantprofileClass(
+                ownersName,
+                address,
+                contactNumber,
+                businessName
+            )
+            reference.child(ownersName).setValue(merchant)
 
             checkCaptcha()
-            showAlert()
+            // Start the MerchantSignedContracts activity and pass relevant information through Intent
+            val intent = Intent(this@MerchantProfile, MerchantSignedContracts::class.java)
+            intent.putExtra("dataOwnersName", ownersName)
+            intent.putExtra("dataAddress", address)
+            intent.putExtra("dataContactNumber", contactNumber)
+            intent.putExtra("dataBusinessName", businessName)
+            intent.putExtra("IMAGE_URI", selectedImageUri.toString())
+            startActivity(intent)
         }
-
     }
 
     private fun openImagePicker() {
@@ -92,6 +116,10 @@ class MerchantProfile : AppCompatActivity() {
 
             // Set the selected image to the ImageView
             imageView.setImageURI(selectedImageUri)
+
+            // Update the state variables
+            isPhotoUploaded = true
+            imageUri = selectedImageUri!!
         }
     }
 
@@ -134,7 +162,11 @@ class MerchantProfile : AppCompatActivity() {
             // Add your logic here
             generateCaptcha()
             captchaEditText.setText("")
-            Toast.makeText(this@MerchantProfile, "You have submitted successfully!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this@MerchantProfile,
+                "You have submitted successfully!",
+                Toast.LENGTH_SHORT
+            ).show()
             showAlert()
         } else {
             // Captcha is incorrect
@@ -152,17 +184,34 @@ class MerchantProfile : AppCompatActivity() {
         alertDialogBuilder.setMessage("You've successfully submitted your registration and pending for approval")
 
         // Set the positive button and its click listener
-        alertDialogBuilder.setPositiveButton("Merchant Profile", DialogInterface.OnClickListener { _, _ ->
-            // Navigate to another page (replace YourTargetActivity::class.java with the actual activity)
-            val intent = Intent(this@MerchantProfile, MerchantSignedContracts::class.java)
-            startActivity(intent)
-            finish() // Optional: Close the current activity if needed
-        })
+        alertDialogBuilder.setPositiveButton(
+            "Merchant Profile",
+            DialogInterface.OnClickListener { _, _ ->
+                // Navigate to another page (replace YourTargetActivity::class.java with the actual activity)
+                val intent = Intent(this@MerchantProfile, MerchantSignedContracts::class.java)
+                startActivity(intent)
+                finish() // Optional: Close the current activity if needed
+            })
 
         // Create and show the alert dialog
         val alertDialog: AlertDialog = alertDialogBuilder.create()
         alertDialog.show()
     }
+
+    // Handle the result of the image selection
+    private val resultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == RESULT_OK) {
+                val data: Intent? = result.data
+                data?.data?.let { uri ->
+                    // Set the selected image to imageView7
+                    val imageView = findViewById<ImageView>(R.id.imageView7)
+                    imageView.setImageURI(uri)
+                    isPhotoUploaded = true
+                    selectedImageUri = uri
+                }
+            }
+        }
 }
 
 

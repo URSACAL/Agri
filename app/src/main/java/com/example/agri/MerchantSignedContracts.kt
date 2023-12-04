@@ -30,27 +30,22 @@ class MerchantSignedContracts : AppCompatActivity() {
         var database: FirebaseDatabase = FirebaseDatabase.getInstance()
         var reference: DatabaseReference = database.reference
 
+        val ownerName = intent.getStringExtra("dataOwnersName")
+        val ownerAddress = intent.getStringExtra("dataAddress")
+        val ownerContact = intent.getStringExtra("dataContactNumber")
+        val image = intent.getStringExtra("IMAGE_URI")
+
+
+
+        // Set values to EditText fields
+        ownerNameEditText.setText(ownerName)
+        ownerAddressEditText.setText(ownerAddress)
+        ownerContactEditText.setText(ownerContact)
+
 
         next.setOnClickListener {
             // Retrieve values from EditText fields
-            database = FirebaseDatabase.getInstance()
-            reference = database.getReference("MerchantSignedContracts")
-            val ownerName = ownerNameEditText.text.toString()
-            val ownerAddress = ownerAddressEditText.text.toString()
-            val ownerContact = ownerContactEditText.text.toString()
 
-            val contract = MerchantsignedontractsClass(
-                ownerName,
-                ownerAddress,
-                ownerContact,
-            )
-            reference.child(ownerName).setValue(contract)
-
-            // Check if any of the fields is empty
-            if (ownerName.isEmpty() || ownerAddress.isEmpty() || ownerContact.isEmpty()) {
-                Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
 
             // Check if an image is selected in the ImageView
             if (!isPhotoUploaded) {

@@ -13,6 +13,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DatabaseReference
@@ -27,7 +28,9 @@ class ConsumerProfile : AppCompatActivity() {
     private lateinit var storageReference: StorageReference
     private lateinit var imageUri: Uri
 
-
+    // Add these declarations
+    private var isPhotoUploaded = false
+    private lateinit var selectedImageUri: Uri
     private var captchaText = ""
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +40,6 @@ class ConsumerProfile : AppCompatActivity() {
         val OwnersName = findViewById<EditText>(R.id.MP_OwnerName)
         val Address = findViewById<EditText>(R.id.MP_OwnerAddress)
         val ContactNumber = findViewById<EditText>(R.id.MP_OwnerContact)
-
         imageView = findViewById(R.id.imageView7)
 
 
@@ -64,18 +66,33 @@ class ConsumerProfile : AppCompatActivity() {
             val Address = Address.text.toString()
             val ContactNumber = ContactNumber.text.toString()
 
+            // Check if any of the fields is empty
+            if (OwnersName.isEmpty() || Address.isEmpty() || ContactNumber.isEmpty()) {
+                // Show a Toast message indicating that all fields must be filled
+                Toast.makeText(this@ConsumerProfile, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            if (!isPhotoUploaded) {
+                Toast.makeText(this, "Please upload a photo", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
-
-            val Merchant = ConsumerprofileClass(
+            val Consumer = ConsumerprofileClass(
                 OwnersName,
                 Address,
                 ContactNumber
 
             )
-            reference.child(OwnersName).setValue(Merchant)
+            reference.child(OwnersName).setValue(Consumer)
 
             checkCaptcha()
-            showAlert()
+            val intent = Intent(this@ConsumerProfile, MerchantSignedContracts::class.java)
+            intent.putExtra("dataOwnersName", OwnersName)
+            intent.putExtra("dataAddress", Address)
+            intent.putExtra("dataContactNumber", ContactNumber)
+            intent.putExtra("IMAGE_URI", selectedImageUri.toString())
+            startActivity(intent)
+
         }
     }
     private fun openImagePicker() {
@@ -91,6 +108,10 @@ class ConsumerProfile : AppCompatActivity() {
 
             // Set the selected image to the ImageView
             imageView.setImageURI(selectedImageUri)
+
+            // Update the state variables
+            isPhotoUploaded = true
+            imageUri = selectedImageUri!!
         }
     }
 
@@ -151,7 +172,7 @@ class ConsumerProfile : AppCompatActivity() {
         alertDialogBuilder.setMessage("You've successfully submitted your registration and pending for approval")
 
         // Set the positive button and its click listener
-        alertDialogBuilder.setPositiveButton("Consumer Profille", DialogInterface.OnClickListener { _, _ ->
+        alertDialogBuilder.setPositiveButton("Consumer Profile", DialogInterface.OnClickListener { _, _ ->
             // Navigate to another page (replace YourTargetActivity::class.java with the actual activity)
             val intent = Intent(this@ConsumerProfile, ConsumerSignedContracts::class.java)
             startActivity(intent)
@@ -162,4 +183,18 @@ class ConsumerProfile : AppCompatActivity() {
         val alertDialog: AlertDialog = alertDialogBuilder.create()
         alertDialog.show()
     }
+    // Handle the result of the image selection
+    private val resultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == RESULT_OK) {
+                val data: Intent? = result.data
+                data?.data?.let { uri ->
+                    // Set the selected image to imageView7
+                    val imageView = findViewById<ImageView>(R.id.imageView7)
+                    imageView.setImageURI(uri)
+                    isPhotoUploaded = true
+                    selectedImageUri = uri
+                }
+            }
+        }
 }

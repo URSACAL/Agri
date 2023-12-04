@@ -1,8 +1,10 @@
 package com.example.agri
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 
 class MerchantProductCategory : AppCompatActivity() {
@@ -17,29 +19,130 @@ class MerchantProductCategory : AppCompatActivity() {
         val rootcrops = findViewById<ImageView>(R.id.rootcrop)
 
         grains.setOnClickListener {
-            // Navigate to Merchant_AddProductGrains activity
-            val intent = Intent(this, Merchant_AddProductGrains::class.java)
-            startActivity(intent)
+            showAlert()
         }
 
         fruits.setOnClickListener {
-            // Navigate to Merchant_AddProductFruits activity
-            val intent = Intent(this, Merchant_AddProductFruits::class.java)
-            startActivity(intent)
+            showAlert1()
         }
 
         vegetables.setOnClickListener {
-            // Navigate to Merchant_AddProductVegetables activity
-            val intent = Intent(this, Merchant_AddProductVegetables::class.java)
-            startActivity(intent)
+            showAlert2()
         }
 
         rootcrops.setOnClickListener {
-            // Navigate to Merchant_AddProductRootcrops activity
-            val intent = Intent(this, Merchant_AddProductSpices::class.java)
-            startActivity(intent)
+            showAlert3()
         }
     }
+    private fun showAlert() {
+        val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(this)
+
+        // Set the alert dialog title and message
+        alertDialogBuilder.setTitle("Manage Product Listing")
+        alertDialogBuilder.setMessage("Manage Inventory: Changes Reflect Instantly in Your Listings.")
+
+        // Set the negative button and its click listener
+        alertDialogBuilder.setNegativeButton("Edit", DialogInterface.OnClickListener { _, _ ->
+            // Navigate to MerchantProducts activity (replace with the actual activity)
+            val intent = Intent(this@MerchantProductCategory, MerchantProductListingDirectory::class.java)
+            startActivity(intent)
+            finish() // Optional: Close the current activity if needed
+        })
+        // Set the positive button and its click listener
+        alertDialogBuilder.setPositiveButton("Add", DialogInterface.OnClickListener { _, _ ->
+            // Navigate to MerchantSignedContracts activity
+            val intent = Intent(this@MerchantProductCategory, Merchant_AddProductGrains::class.java)
+            startActivity(intent)
+            finish() // Optional: Close the current activity if needed
+        })
+
+        // Create and show the alert dialog
+        val alertDialog: AlertDialog = alertDialogBuilder.create()
+        alertDialog.show()
+    }
+    private fun showAlert1() {
+        val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(this)
+
+        // Set the alert dialog title and message
+        alertDialogBuilder.setTitle("Manage Product Listing")
+        alertDialogBuilder.setMessage("Manage Inventory: Changes Reflect Instantly in Your Listings.")
+
+        // Set the negative button and its click listener
+        alertDialogBuilder.setNegativeButton("Edit", DialogInterface.OnClickListener { _, _ ->
+            // Navigate to MerchantProducts activity (replace with the actual activity)
+            val intent = Intent(this@MerchantProductCategory, MerchantProductListingDirectory::class.java)
+            startActivity(intent)
+            finish() // Optional: Close the current activity if needed
+        })
+
+        // Set the positive button and its click listener
+        alertDialogBuilder.setPositiveButton("Add", DialogInterface.OnClickListener { _, _ ->
+            // Navigate to MerchantSignedContracts activity
+            val intent = Intent(this@MerchantProductCategory, Merchant_AddProductFruits::class.java)
+            startActivity(intent)
+            finish() // Optional: Close the current activity if needed
+        })
+
+        // Create and show the alert dialog
+        val alertDialog: AlertDialog = alertDialogBuilder.create()
+        alertDialog.show()
+    }
+    private fun showAlert2() {
+        val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(this)
+
+        // Set the alert dialog title and message
+        alertDialogBuilder.setTitle("Manage Product Listing")
+        alertDialogBuilder.setMessage("Manage Inventory: Changes Reflect Instantly in Your Listings.")
+
+        // Set the negative button and its click listener
+        alertDialogBuilder.setNegativeButton("Edit", DialogInterface.OnClickListener { _, _ ->
+            // Navigate to MerchantProducts activity (replace with the actual activity)
+            val intent = Intent(this@MerchantProductCategory, MerchantProductListingDirectory::class.java)
+            startActivity(intent)
+            finish() // Optional: Close the current activity if needed
+        })
+
+        // Set the positive button and its click listener
+        alertDialogBuilder.setPositiveButton("Add", DialogInterface.OnClickListener { _, _ ->
+            // Navigate to MerchantSignedContracts activity
+            val intent = Intent(this@MerchantProductCategory, Merchant_AddProductVegetables::class.java)
+            startActivity(intent)
+            finish() // Optional: Close the current activity if needed
+        })
+
+        // Create and show the alert dialog
+        val alertDialog: AlertDialog = alertDialogBuilder.create()
+        alertDialog.show()
+    }
+    private fun showAlert3() {
+        val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(this)
+
+        // Set the alert dialog title and message
+        alertDialogBuilder.setTitle("Manage Product Listing")
+        alertDialogBuilder.setMessage("Manage Inventory: Changes Reflect Instantly in Your Listings.")
+
+
+        // Set the negative button and its click listener
+        alertDialogBuilder.setNegativeButton("Edit", DialogInterface.OnClickListener { _, _ ->
+            // Navigate to MerchantProducts activity (replace with the actual activity)
+            val intent = Intent(this@MerchantProductCategory, MerchantProductListingDirectory::class.java)
+            startActivity(intent)
+            finish() // Optional: Close the current activity if needed
+        })
+
+        // Set the positive button and its click listener
+        alertDialogBuilder.setPositiveButton("Add", DialogInterface.OnClickListener { _, _ ->
+            // Navigate to MerchantSignedContracts activity
+            val intent = Intent(this@MerchantProductCategory, Merchant_AddProductSpices::class.java)
+            startActivity(intent)
+            finish() // Optional: Close the current activity if needed
+        })
+
+        // Create and show the alert dialog
+        val alertDialog: AlertDialog = alertDialogBuilder.create()
+        alertDialog.show()
+    }
+
 }
 
 

@@ -76,7 +76,7 @@
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Owner's Name:"
+        android:text="Merchant Name:"
         android:textAlignment="textEnd"
         android:textSize="14sp"
         android:textStyle="bold"

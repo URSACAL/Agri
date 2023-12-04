@@ -191,19 +191,20 @@
         app:srcCompat="@android:drawable/ic_media_previous"
         android:backgroundTint="#0A6939" />
 
+
     <EditText
         android:id="@+id/MP_OwnerAddress"
         android:layout_width="194dp"
         android:layout_height="49dp"
         android:ems="10"
-        android:inputType="textPostalAddress"
-        android:textColor="#000000"
+        android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.827"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.382" />
+        app:layout_constraintVertical_bias="0.382"
+        android:textColor="#000000" />
 
     <!-- Darker green color for the button -->
 
