@@ -30,18 +30,6 @@ class MerchantSignedContracts : AppCompatActivity() {
         var database: FirebaseDatabase = FirebaseDatabase.getInstance()
         var reference: DatabaseReference = database.reference
 
-        val ownerName = intent.getStringExtra("dataOwnersName")
-        val ownerAddress = intent.getStringExtra("dataAddress")
-        val ownerContact = intent.getStringExtra("dataContactNumber")
-        val image = intent.getStringExtra("IMAGE_URI")
-
-
-
-        // Set values to EditText fields
-        ownerNameEditText.setText(ownerName)
-        ownerAddressEditText.setText(ownerAddress)
-        ownerContactEditText.setText(ownerContact)
-
 
         next.setOnClickListener {
             // Retrieve values from EditText fields

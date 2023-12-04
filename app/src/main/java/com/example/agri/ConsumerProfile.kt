@@ -86,12 +86,6 @@ class ConsumerProfile : AppCompatActivity() {
             reference.child(OwnersName).setValue(Consumer)
 
             checkCaptcha()
-            val intent = Intent(this@ConsumerProfile, MerchantSignedContracts::class.java)
-            intent.putExtra("dataOwnersName", OwnersName)
-            intent.putExtra("dataAddress", Address)
-            intent.putExtra("dataContactNumber", ContactNumber)
-            intent.putExtra("IMAGE_URI", selectedImageUri.toString())
-            startActivity(intent)
 
         }
     }

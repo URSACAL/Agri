@@ -92,14 +92,7 @@ class MerchantProfile : AppCompatActivity() {
             reference.child(ownersName).setValue(merchant)
 
             checkCaptcha()
-            // Start the MerchantSignedContracts activity and pass relevant information through Intent
-            val intent = Intent(this@MerchantProfile, MerchantSignedContracts::class.java)
-            intent.putExtra("dataOwnersName", ownersName)
-            intent.putExtra("dataAddress", address)
-            intent.putExtra("dataContactNumber", contactNumber)
-            intent.putExtra("dataBusinessName", businessName)
-            intent.putExtra("IMAGE_URI", selectedImageUri.toString())
-            startActivity(intent)
+
         }
     }
 
