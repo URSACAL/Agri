@@ -165,7 +165,7 @@ class MerchantProfile : AppCompatActivity() {
             // Captcha is incorrect
             // Add your logic here
             generateCaptcha()
-            captchaEditText.setText("try again")
+            captchaEditText.setHint("try again")
         }
     }
 

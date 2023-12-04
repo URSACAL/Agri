@@ -2,9 +2,9 @@ package com.example.agri
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 
 class ConsumerNohassle : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -17,7 +17,7 @@ class ConsumerNohassle : AppCompatActivity() {
 
         previous.setOnClickListener {
             // Define the behavior here (e.g., navigate to a new activity)
-            val intent = Intent(this, ConsumerWholesale::class.java)
+            val intent = Intent(this, Consumer_Login::class.java)
             startActivity(intent)
         }
 
