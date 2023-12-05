@@ -58,7 +58,7 @@ class MerchantUpdates : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_merchant_updates)
+        setContentView(R.layout.activity_merchant_update)
 
         ProductSKU = findViewById(R.id.Uproductsku)
         ProductName = findViewById(R.id.Uproductname)

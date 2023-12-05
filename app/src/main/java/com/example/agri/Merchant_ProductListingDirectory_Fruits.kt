@@ -12,21 +12,21 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class MerchantProductListingDirectory : AppCompatActivity() {
+class Merchant_ProductListingDirectory_Fruits : AppCompatActivity() {
     private lateinit var databaseReference: DatabaseReference
     private lateinit var eventListener: ValueEventListener
-    private lateinit var recyclerView: RecyclerView
+    private lateinit var recyclerViewfruits: RecyclerView
     private lateinit var dataList: MutableList<ProductClass>
     private lateinit var adapter: GridAdapter2
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_merchant_product_listing_directory)
+        setContentView(R.layout.activity_merchant_product_listing_directory_fruits)
 
-        recyclerView = findViewById(R.id.recyclerView2)
+        recyclerViewfruits = findViewById(R.id.recyclerviewFruits)
         val gridLayoutManager = GridLayoutManager(this, 2)
-        recyclerView.layoutManager = gridLayoutManager
+        recyclerViewfruits.layoutManager = gridLayoutManager
 
         val builder = AlertDialog.Builder(this)
         builder.setCancelable(false)
@@ -36,9 +36,9 @@ class MerchantProductListingDirectory : AppCompatActivity() {
         dataList = mutableListOf()
 
         adapter = GridAdapter2(this, dataList)
-        recyclerView.adapter = adapter
+        recyclerViewfruits.adapter = adapter
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Add Products").child("Grains")
+        databaseReference = FirebaseDatabase.getInstance().getReference("Add Products").child("Fruits")
         dialog.show()
         eventListener = databaseReference.addValueEventListener(object : ValueEventListener {
 

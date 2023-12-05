@@ -88,7 +88,7 @@ class Merchant_AddProductFruits : AppCompatActivity() {
         Addproduct.setOnClickListener {
             val database: FirebaseDatabase = FirebaseDatabase.getInstance()
             val reference: DatabaseReference =
-                database.reference.child("Add Products") // Change this to a meaningful node name
+                database.reference.child("Add Products").child("Fruits") // Change this to a meaningful node name
 
             val productSKU = Productsku.text.toString()
             val productName = Productname.text.toString()

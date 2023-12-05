@@ -70,7 +70,7 @@ class MerchantProductCategory : AppCompatActivity() {
         // Set the negative button and its click listener
         alertDialogBuilder.setNegativeButton("Edit", DialogInterface.OnClickListener { _, _ ->
             // Navigate to MerchantProducts activity (replace with the actual activity)
-            val intent = Intent(this@MerchantProductCategory, MerchantProductListingDirectory::class.java)
+            val intent = Intent(this@MerchantProductCategory, Merchant_ProductListingDirectory_Fruits::class.java)
             startActivity(intent)
             finish() // Optional: Close the current activity if needed
         })
@@ -78,7 +78,7 @@ class MerchantProductCategory : AppCompatActivity() {
         // Set the positive button and its click listener
         alertDialogBuilder.setPositiveButton("Add", DialogInterface.OnClickListener { _, _ ->
             // Navigate to MerchantSignedContracts activity
-            val intent = Intent(this@MerchantProductCategory, Merchant_AddProductFruits::class.java)
+            val intent = Intent(this@MerchantProductCategory, Merchant_ProductListingDirectory_Fruits::class.java)
             startActivity(intent)
             finish() // Optional: Close the current activity if needed
         })
