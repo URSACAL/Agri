@@ -61,21 +61,21 @@
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="91dp"
-        android:layout_height="94dp"
+        android:layout_width="141dp"
+        android:layout_height="102dp"
         android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.009"
-        app:srcCompat="@android:drawable/editbox_dropdown_light_frame" />
+        app:layout_constraintVertical_bias="0.01"
+        app:srcCompat="@drawable/logo" />
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="97dp"
-        android:layout_height="35dp"
+        android:layout_width="50dp"
+        android:layout_height="25dp"
         android:text="..."
         android:textAlignment="center"
         android:textColor="#FFFFFF"
@@ -83,27 +83,22 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintHorizontal_bias="0.135"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
         app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
+    <ImageView
         android:id="@+id/textView10"
-        android:layout_width="286dp"
-        android:layout_height="52dp"
-        android:layout_marginBottom="550dp"
-        android:text="AgriCommerce"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        android:layout_width="261dp"
+        android:layout_height="79dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.67"
+        app:layout_constraintHorizontal_bias="0.94"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.351" />
+        app:layout_constraintVertical_bias="0.027"
+        app:srcCompat="@drawable/img" />
 
     <TextView
         android:id="@+id/textView11"
@@ -132,7 +127,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.859"
-        app:srcCompat="@android:drawable/ic_media_previous" />
+        app:srcCompat="@android:drawable/ic_media_previous"
+        android:backgroundTint="#0A6939"/>
 
     <Button
         android:id="@+id/button3"

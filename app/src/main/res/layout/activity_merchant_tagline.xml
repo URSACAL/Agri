@@ -7,20 +7,18 @@
     tools:context=".MerchantTagline"
     android:background="#569664"> <!-- Green background for a nature-themed style -->
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="221dp"
-        android:layout_height="51dp"
-        android:layout_marginBottom="550dp"
-        android:text="AgriCommerce"
-        android:textAlignment="center"
-        android:textSize="28sp"
-        android:textStyle="bold"
+    <ImageView
+        android:id="@+id/textView10"
+        android:layout_width="408dp"
+        android:layout_height="69dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textColor="#FFFFFF" /> <!-- White text color -->
+        app:layout_constraintVertical_bias="0.066"
+        app:srcCompat="@drawable/img" />
+    <!-- White text color -->
 
     <Button
         android:id="@+id/products"
@@ -34,7 +32,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.503"
-        android:textColor="#FFFFFF" /> <!-- White text color -->
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#0A6939" /> <!-- White text color -->
 
     <Button
         android:id="@+id/profile"
@@ -48,7 +47,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.515"
-        android:textColor="#FFFFFF" /> <!-- White text color -->
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#0A6939" /><!-- White text color -->
+
+    <!-- White text color -->
 
     <Button
         android:id="@+id/home"
@@ -62,7 +64,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.507"
-        android:textColor="#FFFFFF" /> <!-- White text color -->
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#0A6939" />
 
     <Button
         android:id="@+id/report"
@@ -76,7 +79,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.503"
-        android:textColor="#FFFFFF" /> <!-- White text color -->
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#0A6939" /> <!-- White text color -->
 
     <ImageView
         android:id="@+id/imageView2"
@@ -91,14 +95,15 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="111dp"
-        android:layout_height="91dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="141dp"
+        android:layout_height="102dp"
+        android:contentDescription="Image"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:srcCompat="@android:drawable/editbox_dropdown_light_frame" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.213"
+        app:srcCompat="@drawable/logo" />
     <TextView
         android:id="@+id/textView3"
         android:layout_width="105dp"

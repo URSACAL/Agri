@@ -9,37 +9,32 @@
 
     <!-- Your Existing UI Elements -->
 
-    <TextView
+    <ImageView
         android:id="@+id/textView10"
-        android:layout_width="214dp"
-        android:layout_height="33dp"
-        android:layout_marginBottom="550dp"
-        android:text="AgriCommerce"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        android:layout_width="408dp"
+        android:layout_height="69dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.568"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.182" />
+        app:layout_constraintVertical_bias="0.177"
+        app:srcCompat="@drawable/img" />
+
+    <!-- Nature-themed green background for the button -->
 
     <Button
         android:id="@+id/next_to_wholesale"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="550dp"
-        android:layout_marginEnd="50dp"
+        android:backgroundTint="#0A6939"
         android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.869"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textColor="#FFFFFF"
-        android:background="#6BB056"
-        android:layout_marginRight="50dp"
-        tools:ignore="HardcodedText" /> <!-- Nature-themed green background for the button -->
+        app:layout_constraintVertical_bias="0.908" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -47,24 +42,11 @@
         android:layout_height="209dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.576"
-        app:srcCompat="@drawable/agricommerce"
-        tools:ignore="ContentDescription" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="111dp"
-        android:layout_height="91dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.556"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.128"
-        app:srcCompat="@android:drawable/editbox_dropdown_light_frame"
+        app:layout_constraintVertical_bias="0.655"
+        app:srcCompat="@drawable/logo"
         tools:ignore="ContentDescription" />
 
     <TextView
@@ -79,10 +61,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.579"
+        app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.336"
+        app:layout_constraintVertical_bias="0.396"
         tools:ignore="HardcodedText" />
 
     <TextView
@@ -97,23 +79,21 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.549"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.285" />
+        app:layout_constraintVertical_bias="0.315" />
 
     <Button
         android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="550dp"
+        android:backgroundTint="#0A6939"
         android:text="Back"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.117"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textColor="#FFFFFF"
-        android:background="#6BB056"
-        android:layout_marginLeft="50dp" /> <!-- Nature-themed green background for the button -->
+        app:layout_constraintVertical_bias="0.909" /> <!-- Nature-themed green background for the button -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -26,17 +26,17 @@
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="91dp"
-        android:layout_height="94dp"
+        android:layout_width="141dp"
+        android:layout_height="102dp"
         android:layout_marginTop="10dp"
+        android:contentDescription="Image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.009"
-        app:srcCompat="@android:drawable/editbox_dropdown_light_frame"
-        android:contentDescription="Image" />
+        app:srcCompat="@drawable/logo" />
 
     <TextView
         android:id="@+id/textView9"
@@ -54,22 +54,18 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
         app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
+    <ImageView
         android:id="@+id/textView10"
-        android:layout_width="213dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:text="AgriCommerce"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        android:layout_width="261dp"
+        android:layout_height="79dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.762"
+        app:layout_constraintHorizontal_bias="0.94"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.043" />
+        app:layout_constraintVertical_bias="0.027"
+        app:srcCompat="@drawable/img" />
+
 
     <TextView
         android:id="@+id/textView11"
@@ -99,6 +95,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.859"
         app:srcCompat="@android:drawable/ic_media_previous"
-        android:background="#6BB056" /> <!-- Nature-themed green background for the button -->
+        android:backgroundTint="#0A6939" /> <!-- Nature-themed green background for the button -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

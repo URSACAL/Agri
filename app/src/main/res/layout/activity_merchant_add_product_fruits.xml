@@ -9,22 +9,21 @@
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="91dp"
-        android:layout_height="94dp"
+        android:layout_width="141dp"
+        android:layout_height="102dp"
         android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.009"
-        app:srcCompat="@android:drawable/editbox_dropdown_light_frame" />
+        app:srcCompat="@drawable/logo" />
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="97dp"
-        android:layout_height="20dp"
-        android:gravity="center_horizontal"
+        android:layout_width="50dp"
+        android:layout_height="25dp"
         android:text="..."
         android:textAlignment="center"
         android:textColor="#FFFFFF"
@@ -32,28 +31,26 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintHorizontal_bias="0.135"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.0" /> <!-- White text color -->
+        app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
+
+    <ImageView
         android:id="@+id/textView10"
-        android:layout_width="246dp"
-        android:layout_height="44dp"
-        android:layout_marginBottom="550dp"
-        android:gravity="center_horizontal"
-        android:text="AgriCommerce"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        android:layout_width="261dp"
+        android:layout_height="79dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.67"
+        app:layout_constraintHorizontal_bias="0.94"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.351" /> <!-- White text color -->
+        app:layout_constraintVertical_bias="0.027"
+        app:srcCompat="@drawable/img" />
+    <!-- White text color -->
+
+    <!-- White text color -->
 
     <TextView
         android:id="@+id/textView11"
@@ -67,10 +64,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.745"
+        app:layout_constraintHorizontal_bias="0.834"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.144" /> <!-- White text color -->
+        app:layout_constraintVertical_bias="0.135" />
 
     <TextView
         android:id="@+id/textView12"
@@ -243,15 +240,16 @@
 
     <Button
         android:id="@+id/addproduct"
-        android:layout_width="112dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#0A6939"
         android:text="Add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.468"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.864" />
+        app:layout_constraintVertical_bias="0.905"/>
 
     <EditText
         android:id="@+id/editTextNumber"

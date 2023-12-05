@@ -10,16 +10,16 @@
 
         <ImageView
             android:id="@+id/imageView6"
-            android:layout_width="91dp"
-            android:layout_height="94dp"
+            android:layout_width="141dp"
+            android:layout_height="102dp"
             android:layout_marginTop="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.049"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.009"
-            app:srcCompat="@android:drawable/editbox_dropdown_light_frame" />
+            app:srcCompat="@drawable/logo" />
 
         <TextView
             android:id="@+id/textView9"
@@ -38,23 +38,17 @@
             app:layout_constraintVertical_bias="0.0"
             android:gravity="center_horizontal" />
 
-        <TextView
+        <ImageView
             android:id="@+id/textView10"
-            android:layout_width="223dp"
-            android:layout_height="49dp"
-            android:layout_marginBottom="550dp"
-            android:text="AgriCommerce"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="28sp"
-            android:textStyle="bold"
+            android:layout_width="261dp"
+            android:layout_height="79dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.67"
+            app:layout_constraintHorizontal_bias="0.94"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.351" />
-
+            app:layout_constraintVertical_bias="0.027"
+            app:srcCompat="@drawable/img" />
         <TextView
             android:id="@+id/textView11"
             android:layout_width="242dp"

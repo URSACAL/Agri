@@ -6,20 +6,17 @@
     android:layout_height="match_parent"
     android:background="#569664"> <!-- Green background for a nature-themed style -->
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="221dp"
-        android:layout_height="51dp"
-        android:layout_marginBottom="550dp"
-        android:text="AgriCommerce"
-        android:textAlignment="center"
-        android:textSize="28sp"
-        android:textStyle="bold"
+    <ImageView
+        android:id="@+id/textView10"
+        android:layout_width="408dp"
+        android:layout_height="69dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textColor="#FFFFFF" />
+        app:layout_constraintVertical_bias="0.066"
+        app:srcCompat="@drawable/img" />
 
     <Button
         android:id="@+id/products"
@@ -95,14 +92,15 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="111dp"
-        android:layout_height="91dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="141dp"
+        android:layout_height="102dp"
+        android:contentDescription="Image"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:srcCompat="@android:drawable/editbox_dropdown_light_frame"
-        android:contentDescription="Image" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.213"
+        app:srcCompat="@drawable/logo" />
 
     <TextView
         android:id="@+id/textView3"
