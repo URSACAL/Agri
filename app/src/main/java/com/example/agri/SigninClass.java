@@ -1,7 +1,6 @@
 package com.example.agri;
 
-public class HelperClass {
-    String email, password, confirmpassword;
+public class SigninClass {String email, password, confirmpassword;
 
     public String getEmail() {
         return email;
@@ -27,12 +26,12 @@ public class HelperClass {
         this.confirmpassword = confirmpassword;
     }
 
-    public HelperClass(String email, String password, String confirmpassword) {
+    public SigninClass(String email, String password, String confirmpassword) {
         this.email = email;
         this.password = password;
         this.confirmpassword = confirmpassword;
     }
 
-    public HelperClass() {
+    public SigninClass() {
     }
 }

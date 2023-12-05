@@ -32,42 +32,41 @@ class ConsumerProfile : AppCompatActivity() {
     private var isPhotoUploaded = false
     private lateinit var selectedImageUri: Uri
     private var captchaText = ""
+
+    private lateinit var databaseReference: DatabaseReference
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_consumer_profile)
 
-        val OwnersName = findViewById<EditText>(R.id.MP_OwnerName)
-        val Address = findViewById<EditText>(R.id.MP_OwnerAddress)
-        val ContactNumber = findViewById<EditText>(R.id.MP_OwnerContact)
+        val ownersName = findViewById<EditText>(R.id.MP_OwnerName)
+        val address = findViewById<EditText>(R.id.MP_OwnerAddress)
+        val contactNumber = findViewById<EditText>(R.id.MP_OwnerContact)
         imageView = findViewById(R.id.imageView7)
-
 
         captchaImageView = findViewById(R.id.imageView8)
         captchaEditText = findViewById(R.id.captchaEditText)
         generateCaptcha()
 
         val submit = findViewById<Button>(R.id.submit)
-        var database: FirebaseDatabase = FirebaseDatabase.getInstance()
-        var reference: DatabaseReference = database.reference
+
+        // Firebase Database initialization
+        val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+        databaseReference = database.getReference("ConsumerProfile")
 
         imageView.setOnClickListener {
             // Open image picker when clicking the ImageView
             openImagePicker()
         }
 
-
-
         submit.setOnClickListener {
-            database = FirebaseDatabase.getInstance()
-            reference = database.getReference("ConsumerProfile")
-
-            val OwnersName = OwnersName.text.toString()
-            val Address = Address.text.toString()
-            val ContactNumber = ContactNumber.text.toString()
+            val ownersNameText = ownersName.text.toString()
+            val addressText = address.text.toString()
+            val contactNumberText = contactNumber.text.toString()
 
             // Check if any of the fields is empty
-            if (OwnersName.isEmpty() || Address.isEmpty() || ContactNumber.isEmpty()) {
+            if (ownersNameText.isEmpty() || addressText.isEmpty() || contactNumberText.isEmpty()) {
                 // Show a Toast message indicating that all fields must be filled
                 Toast.makeText(this@ConsumerProfile, "Please fill in all fields", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -77,21 +76,30 @@ class ConsumerProfile : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val Consumer = ConsumerprofileClass(
-                OwnersName,
-                Address,
-                ContactNumber
-
+            // Save data to Firebase Realtime Database
+            val consumer = ConsumerprofileClass(
+                ownersNameText,
+                addressText,
+                contactNumberText
             )
-            reference.child(OwnersName).setValue(Consumer)
 
-            checkCaptcha()
+            // Use push() to generate a unique key for each entry
+            val newConsumerRef = databaseReference.push()
+            newConsumerRef.setValue(consumer)
 
+            // Check captcha
+            checkCaptcha(ownersNameText, addressText, contactNumberText)
         }
     }
-    private fun openImagePicker() {
+
+    // ... (remaining functions remain unchanged)
+
+
+
+    // ... (remaining functions remain unchanged)
+private fun openImagePicker() {
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-        startActivityForResult(intent, PICK_IMAGE_REQUEST)
+        resultLauncher.launch(intent)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -141,24 +149,21 @@ class ConsumerProfile : AppCompatActivity() {
         return bitmap
     }
 
-    private fun checkCaptcha() {
+    private fun checkCaptcha(ownerName: String, address: String, contactNumber: String) {
         val userInput = captchaEditText.text.toString()
         if (userInput == captchaText) {
             // Captcha is correct
-            // Add your logic here
             generateCaptcha()
             captchaEditText.setText("")
             Toast.makeText(this@ConsumerProfile, "You have submitted successfully!", Toast.LENGTH_SHORT).show()
-            showAlert()
+            showAlert(ownerName, address, contactNumber)
         } else {
             // Captcha is incorrect
-            // Add your logic here
             generateCaptcha()
             captchaEditText.setHint("try again")
         }
     }
-
-    private fun showAlert() {
+    private fun showAlert(ownerName: String, address: String, contactNumber: String) {
         val alertDialogBuilder: AlertDialog.Builder = AlertDialog.Builder(this)
 
         // Set the alert dialog title and message
@@ -169,6 +174,9 @@ class ConsumerProfile : AppCompatActivity() {
         alertDialogBuilder.setPositiveButton("Consumer Profile", DialogInterface.OnClickListener { _, _ ->
             // Navigate to another page (replace YourTargetActivity::class.java with the actual activity)
             val intent = Intent(this@ConsumerProfile, ConsumerSignedContracts::class.java)
+            intent.putExtra("ownersNameText", ownerName)
+            intent.putExtra("addressText", address)
+            intent.putExtra("contactNumberText", contactNumber)
             startActivity(intent)
             finish() // Optional: Close the current activity if needed
         })
@@ -177,6 +185,7 @@ class ConsumerProfile : AppCompatActivity() {
         val alertDialog: AlertDialog = alertDialogBuilder.create()
         alertDialog.show()
     }
+
     // Handle the result of the image selection
     private val resultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->

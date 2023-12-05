@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
-data class HelperClass(
+data class ConsumerClass(
     val email: String,
     val password: String,
     val confirmPassword: String
@@ -64,8 +64,8 @@ class ConsumerSignup : AppCompatActivity() {
                         // Sign up success, update UI with the signed-in user's information
                         val user: FirebaseUser? = firebaseAuth.currentUser
                         // Store user data into Firebase Realtime Database
-                        val helperClass = HelperClass(email, password, confirmPassword)
-                        storeUserData(helperClass)
+                        val consumerClass = ConsumerClass(email, password, confirmPassword)
+                        storeUserData(consumerClass)
                         // Proceed to the next activity
                         val intent = Intent(this, ConsumerProfile::class.java)
                         startActivity(intent)
@@ -95,10 +95,10 @@ class ConsumerSignup : AppCompatActivity() {
     }
 
     // Function to store user data into Firebase Realtime Database
-    private fun storeUserData(helperClass: HelperClass) {
+    private fun storeUserData(consumerClass: ConsumerClass) {
         val database: FirebaseDatabase = FirebaseDatabase.getInstance()
         val reference: DatabaseReference = database.reference.child("Account").push()
 
-        reference.setValue(helperClass)
+        reference.setValue(consumerClass)
     }
 }

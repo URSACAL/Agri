@@ -119,19 +119,23 @@
         app:layout_constraintVertical_bias="0.455"
         android:textColor="#FFFFFF" />
 
-    <EditText
+
+    <TextView
         android:id="@+id/MP_OwnerName"
-        android:layout_width="195dp"
-        android:layout_height="43dp"
+        android:layout_width="216dp"
+        android:layout_height="33dp"
         android:ems="10"
-        android:inputType="textEmailAddress"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.828"
+        app:layout_constraintHorizontal_bias="0.871"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.321"
-        android:textColor="#000000" />
+        app:layout_constraintVertical_bias="0.329" />
 
 
     <TextView
@@ -140,6 +144,7 @@
         android:layout_height="31dp"
         android:text="Valid ID:"
         android:textAlignment="textEnd"
+        android:textColor="#FFFFFF"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -147,36 +152,37 @@
         app:layout_constraintHorizontal_bias="0.197"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.511"
-        android:textColor="#FFFFFF" />
+        app:layout_constraintVertical_bias="0.527" />
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="44dp"
-        android:layout_height="55dp"
+        android:layout_width="35dp"
+        android:layout_height="41dp"
+        android:contentDescription="Image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintHorizontal_bias="0.46"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.529"
-        app:srcCompat="@android:drawable/ic_menu_upload"
-        android:contentDescription="Image" />
+        app:layout_constraintVertical_bias="0.533"
+        app:srcCompat="@android:drawable/ic_menu_upload" />
 
-    <EditText
+    <TextView
         android:id="@+id/MP_OwnerContact"
-        android:layout_width="196dp"
-        android:layout_height="46dp"
+        android:layout_width="216dp"
+        android:layout_height="31dp"
         android:ems="10"
-        android:inputType="phone"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.827"
+        app:layout_constraintHorizontal_bias="0.871"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.445"
-        android:textColor="#000000" />
-
+        app:layout_constraintVertical_bias="0.461" />
 
     <ImageButton
         android:id="@+id/back"
@@ -192,20 +198,22 @@
         android:backgroundTint="#0A6939" />
 
 
-    <EditText
+    <TextView
         android:id="@+id/MP_OwnerAddress"
-        android:layout_width="194dp"
-        android:layout_height="49dp"
+        android:layout_width="216dp"
+        android:layout_height="40dp"
         android:ems="10"
-        android:inputType="textEmailAddress"
+        android:text="TextView"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.827"
+        app:layout_constraintHorizontal_bias="0.871"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.382"
-        android:textColor="#000000" />
+        app:layout_constraintVertical_bias="0.395" />
 
-    <!-- Darker green color for the button -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
