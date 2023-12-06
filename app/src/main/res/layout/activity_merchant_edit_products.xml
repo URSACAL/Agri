@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MerchantEditProducts"
+    tools:context=".MerchantEditProducts_Grains"
     android:background="#569664"> <!-- Green background for a nature-themed style -->
 
     <ImageView

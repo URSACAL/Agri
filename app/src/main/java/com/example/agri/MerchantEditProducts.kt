@@ -59,7 +59,7 @@ class MerchantEditProducts : AppCompatActivity() {
             startActivity(intent)
         }
         delete.setOnClickListener {
-            val reference = FirebaseDatabase.getInstance().getReference("Add Products")
+            val reference = FirebaseDatabase.getInstance().getReference("Add Products").child("Grains")
             val storage = FirebaseStorage.getInstance()
             val storageReference = storage.getReferenceFromUrl(imageURL)
 
