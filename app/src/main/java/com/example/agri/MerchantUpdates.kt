@@ -70,14 +70,14 @@ class MerchantUpdates : AppCompatActivity() {
 
         val bundle = intent.extras
         if (bundle != null) {
-            Glide.with(this@MerchantUpdates).load(bundle.getString("imageURL")).into(ProductImage)
+            oldImageURL = bundle.getString("imageURl")
             ProductSKU.setText(bundle.getString("productSKU"))
             ProductName.setText(bundle.getString("productName"))
             ProductDesc.setText(bundle.getString("productDesc"))
             ProductType.setText(bundle.getString("productType"))
             ProductQuantity.setText(bundle.getString("productQuantity"))
             key = bundle.getString("Key")
-            oldImageURL = bundle.getString("imageURl")
+            Glide.with(this@MerchantUpdates).load(bundle.getString("imageURL")).into(ProductImage)
         }
 
 
